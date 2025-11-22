@@ -134,9 +134,12 @@
   <!-- NAVBAR -->
   <header class="sticky top-0 z-40 bg-white/80 backdrop-blur shadow-sm">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <!-- Brand -->
       <a href="#home" class="font-serif text-xl md:text-2xl font-semibold text-brand-primary">
         Amr Ahmed WalyEldeen
       </a>
+
+      <!-- Desktop nav -->
       <nav class="hidden md:flex gap-5 text-sm font-medium text-muted-text">
         <a href="#about" class="hover:text-brand-primary">About</a>
         <a href="#education" class="hover:text-brand-primary">Education</a>
@@ -149,8 +152,62 @@
         <a href="#thesis" class="hover:text-brand-primary">Thesis</a>
         <a href="#contact" class="hover:text-brand-primary">Contact</a>
       </nav>
+
+      <!-- Mobile hamburger -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-full border border-slate-300 text-slate-700 bg-white/80 hover:bg-slate-100"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        <!-- Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h10" />
+        </svg>
+      </button>
     </div>
   </header>
+
+  <!-- Mobile menu overlay -->
+  <div
+    id="mobile-menu-overlay"
+    class="fixed inset-0 bg-black/35 opacity-0 pointer-events-none transition-opacity duration-200 z-40 md:hidden"
+  ></div>
+
+  <!-- Mobile slide-in menu -->
+  <nav
+    id="mobile-menu"
+    class="fixed inset-y-0 left-0 w-64 max-w-[80%] bg-white/95 backdrop-blur shadow-2xl transform -translate-x-full transition-transform duration-200 z-50 md:hidden flex flex-col"
+    aria-label="Mobile navigation"
+  >
+    <div class="flex items-center justify-between px-4 py-3 border-b border-slate-200">
+      <span class="font-serif font-semibold text-brand-primary">Menu</span>
+      <button
+        id="mobile-menu-close"
+        class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-slate-300 text-slate-700 bg-white hover:bg-slate-100"
+        aria-label="Close navigation menu"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div class="flex-1 overflow-y-auto">
+      <ul class="px-4 py-3 space-y-2 text-sm font-medium text-slate-800">
+        <li><a href="#home" class="block py-2 border-b border-slate-100 mobile-link">Home</a></li>
+        <li><a href="#about" class="block py-2 border-b border-slate-100 mobile-link">About</a></li>
+        <li><a href="#education" class="block py-2 border-b border-slate-100 mobile-link">Education</a></li>
+        <li><a href="#experience" class="block py-2 border-b border-slate-100 mobile-link">Experience</a></li>
+        <li><a href="#projects" class="block py-2 border-b border-slate-100 mobile-link">Projects</a></li>
+        <li><a href="#publications" class="block py-2 border-b border-slate-100 mobile-link">Publications</a></li>
+        <li><a href="#training" class="block py-2 border-b border-slate-100 mobile-link">Training</a></li>
+        <li><a href="#teaching" class="block py-2 border-b border-slate-100 mobile-link">Teaching</a></li>
+        <li><a href="#skills" class="block py-2 border-b border-slate-100 mobile-link">Skills</a></li>
+        <li><a href="#thesis" class="block py-2 border-b border-slate-100 mobile-link">Thesis</a></li>
+        <li><a href="#contact" class="block py-2 mobile-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <main id="home" class="pt-10">
     <!-- HERO -->
@@ -321,7 +378,7 @@
       </div>
     </section>
 
-    <!-- RESEARCH PROJECTS (simplified details you asked for) -->
+    <!-- RESEARCH PROJECTS -->
     <section id="projects" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
       <h2 class="text-3xl font-semibold mb-6">Research Projects</h2>
       <div class="grid md:grid-cols-2 gap-6 text-sm">
@@ -698,7 +755,7 @@
     ↑
   </button>
 
-  <!-- JavaScript for year, scroll, fade-in, publications sorting & collapse -->
+  <!-- JavaScript for year, scroll, fade-in, publications sorting & collapse, mobile menu -->
   <script>
     // Year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -772,6 +829,34 @@
 
     // Initial sort (newest first)
     sortYearBlocks('desc');
+
+    // Mobile slide-in menu
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function openMobileMenu() {
+      mobileMenu.classList.remove('-translate-x-full');
+      mobileOverlay.classList.remove('pointer-events-none');
+      mobileOverlay.classList.add('opacity-100');
+      mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add('-translate-x-full');
+      mobileOverlay.classList.add('pointer-events-none');
+      mobileOverlay.classList.remove('opacity-100');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+    mobileOverlay.addEventListener('click', closeMobileMenu);
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
   </script>
 </body>
 </html>
