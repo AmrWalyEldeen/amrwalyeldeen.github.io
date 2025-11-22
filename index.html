@@ -8,8 +8,11 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
   <script>
     tailwind.config = {
@@ -20,29 +23,42 @@
             serif: ['Playfair Display', 'serif'],
           },
           colors: {
-            'primary-blue': '#0077b6',
-            'light-bg': '#e6f3ff',
-            'dark-text': '#0a1a2f',
-            'muted-text': '#44546a',
+            'brand-dark': '#0b1729',
+            'brand-primary': '#0077b6',
+            'brand-soft': '#e3f2ff',
+            'brand-accent': '#00b4d8',
+            'muted-text': '#556276',
           },
+          boxShadow: {
+            soft: '0 18px 45px rgba(15, 23, 42, 0.12)',
+          }
         }
       }
     }
   </script>
 
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
-
-    /* Simple fade-in on scroll */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top left, #dbeafe 0, #eff6ff 30%, #f9fafb 65%, #e0f7ff 100%);
+      color: #0b1729;
+      position: relative;
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Soft noise/texture */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -40%;
+      z-index: -1;
+      background-image: radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.06) 1px, transparent 0);
+      background-size: 14px 14px;
+      opacity: 0.35;
+      pointer-events: none;
     }
 
     /* Scroll progress bar */
@@ -52,11 +68,32 @@
       left: 0;
       height: 3px;
       width: 0;
-      background: #00b4d8;
+      background: linear-gradient(90deg, #00b4d8, #0077b6);
       z-index: 50;
     }
 
-    /* Back to top button */
+    /* Fade-in on scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Card hover */
+    .card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 55px rgba(15, 23, 42, 0.18);
+      background-color: rgba(255, 255, 255, 0.98);
+    }
+
+    /* Back to top */
     #back-to-top {
       position: fixed;
       bottom: 1.5rem;
@@ -64,75 +101,94 @@
       display: none;
     }
 
-    /* subtle page background texture */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: -50%;
-      z-index: -1;
-      background-image: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.06) 1px, transparent 0);
-      background-size: 14px 14px;
-      opacity: 0.35;
+    /* Publications collapsible year blocks */
+    .year-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .year-block.open .year-body {
+      max-height: 2000px; /* large enough */
+    }
+    .year-chevron {
+      transition: transform 0.25s ease;
+    }
+    .year-block.open .year-chevron {
+      transform: rotate(180deg);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
 
-<body class="bg-light-bg text-dark-text">
+<body>
   <!-- Scroll progress bar -->
   <div id="progress-bar"></div>
 
   <!-- NAVBAR -->
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur shadow-sm">
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur shadow-sm">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-      <a href="#home" class="font-serif text-xl font-semibold text-primary-blue">
+      <a href="#home" class="font-serif text-xl md:text-2xl font-semibold text-brand-primary">
         Amr Ahmed WalyEldeen
       </a>
       <nav class="hidden md:flex gap-5 text-sm font-medium text-muted-text">
-        <a href="#about" class="hover:text-primary-blue">About</a>
-        <a href="#education" class="hover:text-primary-blue">Education</a>
-        <a href="#experience" class="hover:text-primary-blue">Experience</a>
-        <a href="#projects" class="hover:text-primary-blue">Projects</a>
-        <a href="#publications" class="hover:text-primary-blue">Publications</a>
-        <a href="#training" class="hover:text-primary-blue">Training</a>
-        <a href="#teaching" class="hover:text-primary-blue">Teaching</a>
-        <a href="#skills" class="hover:text-primary-blue">Skills</a>
-        <a href="#thesis" class="hover:text-primary-blue">Thesis</a>
-        <a href="#contact" class="hover:text-primary-blue">Contact</a>
+        <a href="#about" class="hover:text-brand-primary">About</a>
+        <a href="#education" class="hover:text-brand-primary">Education</a>
+        <a href="#experience" class="hover:text-brand-primary">Experience</a>
+        <a href="#projects" class="hover:text-brand-primary">Projects</a>
+        <a href="#publications" class="hover:text-brand-primary">Publications</a>
+        <a href="#training" class="hover:text-brand-primary">Training</a>
+        <a href="#teaching" class="hover:text-brand-primary">Teaching</a>
+        <a href="#skills" class="hover:text-brand-primary">Skills</a>
+        <a href="#thesis" class="hover:text-brand-primary">Thesis</a>
+        <a href="#contact" class="hover:text-brand-primary">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO / HOME -->
   <main id="home" class="pt-10">
+    <!-- HERO -->
     <section class="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-16 grid md:grid-cols-2 gap-10 items-center fade-in">
       <div>
+        <p class="text-xs uppercase tracking-[0.25em] text-brand-primary mb-3">Academic Portfolio</p>
         <h1 class="text-4xl md:text-5xl font-semibold leading-tight">
-          Amr Ahmed<br class="hidden sm:block" />
-          WalyEldeen
+          Dr. Amr Ahmed<br class="hidden sm:block" /> WalyEldeen
         </h1>
         <p class="mt-4 text-lg text-muted-text">
-          Assistant Lecturer of Cell Biology, Histology & Genetics<br />
+          Assistant Lecturer of Cell Biology, Histology &amp; Genetics<br />
           Faculty of Science, Cairo University.
         </p>
         <p class="mt-5 text-base">
           I am a researcher in <strong>cancer cell biology</strong>, <strong>molecular oncology</strong>, and
-          <strong>extracellular vesicle biology</strong>. My work focuses on understanding the molecular mechanisms of
-          cancer progression, metastasis, and therapeutic resistance using advanced proteomic and bioinformatic
-          approaches, with a special emphasis on <strong>breast cancer liquid biopsy</strong>.
+          <strong>extracellular vesicle biology</strong>. My work focuses on deciphering the molecular mechanisms of
+          cancer progression, metastasis, and therapeutic resistance, with a particular emphasis on
+          <strong>breast cancer liquid biopsy</strong> and exosome-based biomarkers.
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#contact" class="inline-flex items-center px-5 py-2.5 rounded-lg bg-primary-blue text-white text-sm font-semibold shadow hover:bg-[#005f8f]">
+          <a href="#contact" class="inline-flex items-center px-5 py-2.5 rounded-full bg-brand-primary text-white text-sm font-semibold shadow-soft hover:bg-[#005f8f]">
             Contact me
           </a>
-          <a href="#publications" class="inline-flex items-center px-5 py-2.5 rounded-lg border border-primary-blue text-primary-blue text-sm font-semibold bg-white hover:bg-blue-50">
+          <a href="#publications" class="inline-flex items-center px-5 py-2.5 rounded-full border border-brand-primary text-brand-primary text-sm font-semibold bg-white/80 hover:bg-brand-soft">
             View publications
           </a>
         </div>
       </div>
       <div class="flex justify-center">
-        <!-- Replace with your photo file later -->
-        <div class="w-52 h-52 md:w-64 md:h-64 rounded-3xl bg-white shadow-xl border border-blue-100 flex items-center justify-center text-muted-text text-sm">
-          Your photo here
+        <!-- Your actual photo: make sure amr.jpg is in same folder as index.html -->
+        <div class="relative">
+          <div class="absolute -top-4 -left-4 w-16 h-16 rounded-3xl bg-gradient-to-br from-brand-primary/40 to-brand-accent/40 blur-2xl opacity-70"></div>
+          <div class="absolute -bottom-6 -right-6 w-20 h-20 rounded-full bg-gradient-to-tr from-brand-accent/50 to-sky-200 blur-2xl opacity-60"></div>
+          <img
+            src="amr.jpg"
+            alt="Photo of Dr. Amr Ahmed WalyEldeen"
+            class="relative w-56 h-56 md:w-64 md:h-64 rounded-3xl object-cover shadow-soft border border-white/80 bg-white"
+          />
         </div>
       </div>
     </section>
@@ -140,21 +196,21 @@
     <!-- QUICK STATS -->
     <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-8 fade-in">
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div class="bg-white/80 rounded-2xl shadow p-4 text-center">
-          <div class="text-2xl font-bold text-primary-blue">M.Sc.</div>
-          <div class="text-xs uppercase tracking-wide text-muted-text mt-1">Cell Biology, Histology & Genetics</div>
+        <div class="card bg-white/80 rounded-2xl p-4 text-center border border-white/70">
+          <div class="text-2xl font-bold text-brand-primary">M.Sc.</div>
+          <div class="text-xs uppercase tracking-wide text-muted-text mt-1">Cell Biology, Histology &amp; Genetics</div>
         </div>
-        <div class="bg-white/80 rounded-2xl shadow p-4 text-center">
-          <div class="text-2xl font-bold text-primary-blue">2017</div>
-          <div class="text-xs uppercase tracking-wide text-muted-text mt-1">B.Sc. Zoology & Chemistry (Honours)</div>
+        <div class="card bg-white/80 rounded-2xl p-4 text-center border border-white/70">
+          <div class="text-2xl font-bold text-brand-primary">2017</div>
+          <div class="text-xs uppercase tracking-wide text-muted-text mt-1">B.Sc. Zoology &amp; Chemistry (Honours)</div>
         </div>
-        <div class="bg-white/80 rounded-2xl shadow p-4 text-center">
-          <div class="text-2xl font-bold text-primary-blue">11+</div>
+        <div class="card bg-white/80 rounded-2xl p-4 text-center border border-white/70">
+          <div class="text-2xl font-bold text-brand-primary">10+</div>
           <div class="text-xs uppercase tracking-wide text-muted-text mt-1">Peer-reviewed publications</div>
         </div>
-        <div class="bg-white/80 rounded-2xl shadow p-4 text-center">
-          <div class="text-2xl font-bold text-primary-blue">2</div>
-          <div class="text-xs uppercase tracking-wide text-muted-text mt-1">Funded research projects</div>
+        <div class="card bg-white/80 rounded-2xl p-4 text-center border border-white/70">
+          <div class="text-2xl font-bold text-brand-primary">2</div>
+          <div class="text-xs uppercase tracking-wide text-muted-text mt-1">Funded projects</div>
         </div>
       </div>
     </section>
@@ -171,32 +227,32 @@
       </p>
 
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white rounded-2xl shadow p-5">
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70">
           <h3 class="text-xl font-semibold mb-3">Personal Information</h3>
           <ul class="space-y-2 text-sm">
             <li><strong>Full name:</strong> Amr Ahmed Abdelfattah Ahmed WalyEldeen</li>
             <li><strong>Date of Birth:</strong> 10 July 1995</li>
             <li><strong>Nationality:</strong> Egyptian</li>
-            <li><strong>Current position:</strong> Assistant Lecturer of Cell, Histology & Genetics</li>
-            <li><strong>Affiliation:</strong> Cellular and Molecular Biosciences Research Lab, Department of Zoology, Faculty of Science, Cairo University, 12613 Giza, Egypt</li>
+            <li><strong>Current position:</strong> Assistant Lecturer of Cell, Histology &amp; Genetics</li>
+            <li><strong>Affiliation:</strong> Cellular &amp; Molecular Biosciences Research Lab, Department of Zoology, Faculty of Science, Cairo University, 12613 Giza, Egypt</li>
             <li><strong>Phone:</strong> +20 1091414517</li>
-            <li><strong>Email:</strong> awalyeldeen@sci.cu.edu.eg | amr.waly.eldeen@gmail.com</li>
+            <li><strong>Email:</strong> awalyeldeen@sci.cu.edu.eg &nbsp;|&nbsp; amr.waly.eldeen@gmail.com</li>
           </ul>
         </div>
-        <div class="bg-white rounded-2xl shadow p-5">
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70">
           <h3 class="text-xl font-semibold mb-3">Academic Profiles</h3>
           <ul class="space-y-2 text-sm">
-            <li><a href="https://scholar.cu.edu.eg/?q=waly/" target="_blank" class="text-primary-blue hover:underline">Cairo Scholar</a></li>
-            <li><a href="https://scholar.google.com.eg/citations?hl=en&authuser=5&user=RGY0j08AAAAJ" target="_blank" class="text-primary-blue hover:underline">Google Scholar</a></li>
-            <li><a href="https://www.scopus.com/authid/detail.uri?authorId=57815650300" target="_blank" class="text-primary-blue hover:underline">Scopus</a></li>
-            <li><a href="https://orcid.org/0000-0002-2056-7288" target="_blank" class="text-primary-blue hover:underline">ORCID</a></li>
-            <li><a href="https://www.linkedin.com/in/amrwalyeldeen/" target="_blank" class="text-primary-blue hover:underline">LinkedIn</a></li>
+            <li><a href="https://scholar.cu.edu.eg/?q=waly/" target="_blank" class="text-brand-primary hover:underline">Cairo Scholar</a></li>
+            <li><a href="https://scholar.google.com.eg/citations?hl=en&authuser=5&user=RGY0j08AAAAJ" target="_blank" class="text-brand-primary hover:underline">Google Scholar</a></li>
+            <li><a href="https://www.scopus.com/authid/detail.uri?authorId=57815650300" target="_blank" class="text-brand-primary hover:underline">Scopus</a></li>
+            <li><a href="https://orcid.org/0000-0002-2056-7288" target="_blank" class="text-brand-primary hover:underline">ORCID</a></li>
+            <li><a href="https://www.linkedin.com/in/amrwalyeldeen/" target="_blank" class="text-brand-primary hover:underline">LinkedIn</a></li>
           </ul>
 
           <h3 class="text-xl font-semibold mt-6 mb-3">Languages</h3>
           <ul class="space-y-1 text-sm">
-            <li><strong>Arabic:</strong> Native (fluent spoken and written)</li>
-            <li><strong>English:</strong> Fluent spoken and written</li>
+            <li><strong>Arabic:</strong> Native</li>
+            <li><strong>English:</strong> Fluent (spoken &amp; written)</li>
           </ul>
         </div>
       </div>
@@ -206,28 +262,28 @@
     <section id="education" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
       <h2 class="text-3xl font-semibold mb-6">Education</h2>
       <div class="space-y-5">
-        <div class="bg-white rounded-2xl shadow p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <div>
-            <h3 class="text-lg font-semibold">M.Sc. in Cell Biology, Histology & Genetics</h3>
+            <h3 class="text-lg font-semibold">M.Sc. in Cell Biology, Histology &amp; Genetics</h3>
             <p class="text-sm text-muted-text">Faculty of Science, Cairo University, Egypt</p>
           </div>
-          <div class="text-sm font-semibold text-primary-blue">2021</div>
+          <div class="text-sm font-semibold text-brand-primary">2021</div>
         </div>
-        <div class="bg-white rounded-2xl shadow p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <div>
-            <h3 class="text-lg font-semibold">Pre-master Courses in Cell Biology, Histology & Genetics</h3>
+            <h3 class="text-lg font-semibold">Pre-master Courses in Cell Biology, Histology &amp; Genetics</h3>
             <p class="text-sm text-muted-text">Faculty of Science, Cairo University, Egypt</p>
             <p class="text-xs text-muted-text mt-1">Grade: Very Good (84%)</p>
           </div>
-          <div class="text-sm font-semibold text-primary-blue">2018</div>
+          <div class="text-sm font-semibold text-brand-primary">2018</div>
         </div>
-        <div class="bg-white rounded-2xl shadow p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <div>
-            <h3 class="text-lg font-semibold">B.Sc. in Zoology & Chemistry</h3>
+            <h3 class="text-lg font-semibold">B.Sc. in Zoology &amp; Chemistry</h3>
             <p class="text-sm text-muted-text">Faculty of Science, Cairo University, Egypt</p>
             <p class="text-xs text-muted-text mt-1">Excellent with Honors (GPA 4.2/5, 92%)</p>
           </div>
-          <div class="text-sm font-semibold text-primary-blue">2017</div>
+          <div class="text-sm font-semibold text-brand-primary">2017</div>
         </div>
       </div>
     </section>
@@ -236,223 +292,241 @@
     <section id="experience" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
       <h2 class="text-3xl font-semibold mb-6">Professional Experience</h2>
       <div class="space-y-5">
-        <div class="bg-white rounded-2xl shadow p-5">
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70">
           <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
             <div>
               <h3 class="text-lg font-semibold">Assistant Lecturer</h3>
               <p class="text-sm text-muted-text">Zoology Department, Faculty of Science, Cairo University, Giza, Egypt</p>
             </div>
-            <div class="text-sm font-semibold text-primary-blue">Sep 2022 – Present</div>
+            <div class="text-sm font-semibold text-brand-primary">Sep 2022 – Present</div>
           </div>
         </div>
-        <div class="bg-white rounded-2xl shadow p-5">
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70">
           <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
             <div>
               <h3 class="text-lg font-semibold">Teaching Assistant</h3>
               <p class="text-sm text-muted-text">Zoology Department, Faculty of Science, Cairo University, Giza, Egypt</p>
             </div>
-            <div class="text-sm font-semibold text-primary-blue">Dec 2018 – Sep 2022</div>
+            <div class="text-sm font-semibold text-brand-primary">Dec 2018 – Sep 2022</div>
           </div>
         </div>
-        <div class="bg-white rounded-2xl shadow p-5">
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70">
           <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
             <div>
               <h3 class="text-lg font-semibold">Chemist</h3>
               <p class="text-sm text-muted-text">Alfa Laboratories, Giza, Egypt</p>
             </div>
-            <div class="text-sm font-semibold text-primary-blue">Oct 2017 – Oct 2018</div>
+            <div class="text-sm font-semibold text-brand-primary">Oct 2017 – Oct 2018</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RESEARCH PROJECTS -->
+    <!-- RESEARCH PROJECTS (simplified) -->
     <section id="projects" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
-      <h2 class="text-3xl font-semibold mb-6">Running Research Projects</h2>
-      <div class="space-y-6">
-        <div class="bg-white rounded-2xl shadow p-5">
-          <h3 class="text-xl font-semibold mb-2">
-            Extracellular vesicle-derived proteoglycans as non-invasive liquid biopsy-based cancer biomarkers:
-            Towards novel breast cancer screening (Project No. 46282)
+      <h2 class="text-3xl font-semibold mb-6">Research Projects</h2>
+      <div class="grid md:grid-cols-2 gap-6 text-sm">
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70">
+          <h3 class="text-lg font-semibold mb-2">
+            Extracellular vesicle-derived proteoglycans as non-invasive liquid biopsy-based cancer biomarkers: Towards novel breast cancer screening
           </h3>
-          <p class="text-sm text-muted-text mb-1">
-            <strong>Role:</strong> Research team member (Researcher B, M.Sc. holder)
-          </p>
-          <p class="text-sm text-muted-text mb-1">
-            <strong>Funding:</strong> Science, Technology & Innovation Funding Authority (STDF)
-          </p>
-          <p class="text-sm text-muted-text mb-1">
-            <strong>Budget:</strong> 1,991,170 LE &nbsp; | &nbsp; <strong>Duration:</strong> 2 years
-          </p>
-          <p class="text-sm mt-3">
-            This project develops cost-effective methodologies for isolating exosomes and identifying non-invasive
-            biomarkers to improve early breast cancer detection. The outcomes aim to serve hospitals, cancer centers,
-            biotech and diagnostic companies, and health authorities, and support commercialization and collaboration
-            between academia and industry.
-          </p>
-          <p class="text-sm mt-3">
-            <strong>Resulting manuscripts (under review):</strong><br />
-            • Identification of Cathepsin L and Urokinase Type Plasminogen Activator in plasma-derived extracellular
-            vesicles of breast cancer patients. (Submitted to <em>Scientific Reports</em>).<br />
-            • Plasma exosomal proteomic signature in neoadjuvant chemotherapy–naïve breast cancer patients. (Submitted
-            to <em>PLOS ONE</em>).
-          </p>
+          <p><strong>Project ID:</strong> 46282</p>
+          <p><strong>Role:</strong> Research team member (Researcher B, M.Sc. holder)</p>
+          <p><strong>Funding Institution:</strong> Science, Technology &amp; Innovation Funding Authority (STDF), Egypt</p>
         </div>
 
-        <div class="bg-white rounded-2xl shadow p-5">
-          <h3 class="text-xl font-semibold mb-2">
-            Proteomic profiling of exosomes: Discovery of novel diagnostic biomarkers for lymph node metastasis in breast cancer (Project No. Respect1-10052)
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70">
+          <h3 class="text-lg font-semibold mb-2">
+            Proteomic profiling of exosomes: Discovery of novel diagnostic biomarkers for lymph node metastasis in breast cancer
           </h3>
-          <p class="text-sm text-muted-text mb-1">
-            <strong>Role:</strong> Research team member (Researcher B, M.Sc. holder)
-          </p>
-          <p class="text-sm text-muted-text mb-1">
-            <strong>Funding:</strong> Academy of Scientific Research & Technology (ASRT)
-          </p>
-          <p class="text-sm text-muted-text mb-1">
-            <strong>Budget:</strong> 1,490,000 LE &nbsp; | &nbsp; <strong>Duration:</strong> 2 years
-          </p>
-          <p class="text-sm mt-3">
-            This project focuses on proteomic profiling of exosomes to discover diagnostic biomarkers for detecting
-            lymph node metastasis in breast cancer. It led to a low-cost PEG-based exosome isolation protocol for
-            resource-limited clinical labs, and provided training in proteomics and bioinformatics through collaborations
-            with the National Cancer Institute and Baheya Center.
-          </p>
-          <p class="text-sm mt-3">
-            <strong>Resulting publications:</strong><br />
-            • Talat, L.Y. et al. <em>“SDC2 and FN as cargo proteins in circulating extracellular vesicles in obese breast
-            cancer patients with lymph node metastasis.”</em> Scientific Reports 15(1): 32498, 2025.<br />
-            • Exosomal Protease Profiling Identifies elevated latent MMP8 in Breast Cancer Patients with Lymph Node
-            Metastasis. (Under review).
-          </p>
+          <p><strong>Project ID:</strong> Respect1-10052</p>
+          <p><strong>Role:</strong> Research team member (Researcher B, M.Sc. holder)</p>
+          <p><strong>Funding Institution:</strong> Academy of Scientific Research &amp; Technology (ASRT), Egypt</p>
         </div>
       </div>
     </section>
 
-    <!-- PUBLICATIONS -->
+    <!-- PUBLICATIONS: collapsible + sortable -->
     <section id="publications" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
-      <h2 class="text-3xl font-semibold mb-6">Selected Publications</h2>
-      <p class="text-sm text-muted-text mb-4">
-        Below is the list of publications from your CV. (Full details and citation metrics can be found on your
-        Google Scholar and Scopus profiles.)
-      </p>
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4">
+        <div>
+          <h2 class="text-3xl font-semibold">Publications</h2>
+          <p class="text-sm text-muted-text mt-1">
+            Click a year to expand; use the sort control to reorder years.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 text-sm">
+          <label for="pub-sort" class="text-muted-text">Sort years:</label>
+          <select id="pub-sort" class="border border-gray-300 rounded-full px-3 py-1.5 bg-white/90">
+            <option value="desc">Newest first</option>
+            <option value="asc">Oldest first</option>
+          </select>
+        </div>
+      </div>
 
-      <h3 class="text-2xl font-semibold mt-4 mb-2">2025</h3>
-      <ul class="space-y-3 text-sm">
-        <li class="bg-white rounded-2xl shadow p-4">
-          Troschel, F., Brücksken, K.A., Meier, F.K., Meißner, C., Poschmann, G., Korsching, E., Hassan, H.,
-          <strong>WalyEldeen, A.A.</strong>, Ibrahim, S.A., and Samer, R.M.  
-          <em>“Knockdown and Inhibition of RNA-Binding Proteins Musashi-1 and Musashi-2 Modulate DNA Repair and
-          Radiosensitize Triple-Negative Breast Cancer.”</em> International Journal of Radiation Oncology, Biology,
-          Physics, 123(1): e515, 2025.
-        </li>
-        <li class="bg-white rounded-2xl shadow p-4">
-          Talat, L.Y., Mohamed, G., Ibraheem, M.H., <strong>WalyEldeen, A.A.</strong>, Hassan, H., and Ibrahim, S.A.A.  
-          <em>“SDC2 and FN as cargo proteins in circulating extracellular vesicles in obese breast cancer patients with
-          lymph node metastasis.”</em> Scientific Reports 15(1): 32498, 2025.
-        </li>
-        <li class="bg-white rounded-2xl shadow p-4">
-          Sayed, A.A., Abdullah, M.S., <strong>WalyEldeen, A.A.</strong>, Sayed, R.M.S., Gabre, R.M., Ibrahim, S.A.A., and
-          Hassan, H.  
-          <em>“Cicer arietinum extract as antitumor and protective agent against Ehrlich Solid Carcinoma-bearing mice.”</em>
-          BMC Complementary Medicine and Therapies 25(1): 325, 2025.
-        </li>
-        <li class="bg-white rounded-2xl shadow p-4">
-          Kotb, M.A., Abdelmawgood, I.A., <strong>WalyEldeen, A.A.</strong>, Abdelaziz, M.H., Khalaf, M.L., Mohamed, A.S.,
-          Dakrory, A.E., and Ibrahim, S.A.A.  
-          <em>“Chrysin-loaded PLGA nanoparticles alleviate the implantation of endometriotic lesions via attenuation of
-          peritoneal inflammation and downregulating NF-κB activation-driven expression of angiogenic factors.”</em>
-          Journal of Drug Delivery Science and Technology: 106984, 2025.
-        </li>
-        <li class="bg-white rounded-2xl shadow p-4">
-          Hassanein, H.H., <strong>WalyEldeen, A.A.</strong>, Sayed, R.M.S., Taha, A.A.A., Ibrahim, S.A.A., and Hassan, H.  
-          <em>“Glypican3 and serglycin as potential biomarkers involved in the pathogenesis of ovarian endometriosis.”</em>
-          Tissue and Cell 95: 102867, 2025.
-        </li>
-        <li class="bg-white rounded-2xl shadow p-4">
-          Mahmoud, M., <strong>WalyEldeen, A.A.</strong>, Samie, M.A., Sadek, A.M., Elakhras, S., Samir, M., Ahmed, O.,
-          Sayed, R.M.S., Baiomy, A.A.A., and Ibrahim, S.A.A.  
-          <em>“Overexpression of miR-21-5p as a potential pathogenesis marker for ovarian endometriosis.”</em>
-          The Journal of Basic and Applied Zoology 86(1): 1, 2025.
-        </li>
-      </ul>
+      <div id="pub-years-container" class="space-y-3 text-sm">
+        <!-- 2025 -->
+        <div class="year-block card bg-white/90 rounded-2xl border border-white/70" data-year="2025">
+          <button
+            type="button"
+            class="w-full flex items-center justify-between px-5 py-3 text-left"
+          >
+            <span class="font-semibold text-base">2025</span>
+            <span class="year-chevron text-xs text-muted-text">▼</span>
+          </button>
+          <div class="year-body px-5 pb-4">
+            <ul class="space-y-3">
+              <li>
+                Troschel, F., Brücksken, K.A., Meier, F.K., Meißner, C., Poschmann, G., Korsching, E., Hassan, H.,
+                <strong>WalyEldeen, A.A.</strong>, Ibrahim, S.A., and Samer, R.M.  
+                <em>“Knockdown and Inhibition of RNA-Binding Proteins Musashi-1 and Musashi-2 Modulate DNA Repair and
+                Radiosensitize Triple-Negative Breast Cancer.”</em> International Journal of Radiation Oncology, Biology,
+                Physics, 123(1): e515, 2025.
+              </li>
+              <li>
+                Talat, L.Y., Mohamed, G., Ibraheem, M.H., <strong>WalyEldeen, A.A.</strong>, Hassan, H., and Ibrahim,
+                S.A.A.  
+                <em>“SDC2 and FN as cargo proteins in circulating extracellular vesicles in obese breast cancer patients
+                with lymph node metastasis.”</em> Scientific Reports 15(1): 32498, 2025.
+              </li>
+              <li>
+                Sayed, A.A., Abdullah, M.S., <strong>WalyEldeen, A.A.</strong>, Sayed, R.M.S., Gabre, R.M., Ibrahim,
+                S.A.A., and Hassan, H.  
+                <em>“Cicer arietinum extract as antitumor and protective agent against Ehrlich Solid
+                Carcinoma-bearing mice.”</em> BMC Complementary Medicine and Therapies 25(1): 325, 2025.
+              </li>
+              <li>
+                Kotb, M.A., Abdelmawgood, I.A., <strong>WalyEldeen, A.A.</strong>, Abdelaziz, M.H., Khalaf, M.L.,
+                Mohamed, A.S., Dakrory, A.E., and Ibrahim, S.A.A.  
+                <em>“Chrysin-loaded PLGA nanoparticles alleviate the implantation of endometriotic lesions via attenuation
+                of peritoneal inflammation and downregulating NF-κB activation-driven expression of angiogenic
+                factors.”</em> Journal of Drug Delivery Science and Technology: 106984, 2025.
+              </li>
+              <li>
+                Hassanein, H.H., <strong>WalyEldeen, A.A.</strong>, Sayed, R.M.S., Taha, A.A.A., Ibrahim, S.A.A., and
+                Hassan, H.  
+                <em>“Glypican3 and serglycin as potential biomarkers involved in the pathogenesis of ovarian
+                endometriosis.”</em> Tissue and Cell 95: 102867, 2025.
+              </li>
+              <li>
+                Mahmoud, M., <strong>WalyEldeen, A.A.</strong>, Samie, M.A., Sadek, A.M., Elakhras, S., Samir, M.,
+                Ahmed, O., Sayed, R.M.S., Baiomy, A.A.A., and Ibrahim, S.A.A.  
+                <em>“Overexpression of miR-21-5p as a potential pathogenesis marker for ovarian endometriosis.”</em>
+                The Journal of Basic and Applied Zoology 86(1): 1, 2025.
+              </li>
+            </ul>
+          </div>
+        </div>
 
-      <h3 class="text-2xl font-semibold mt-6 mb-2">2024</h3>
-      <ul class="space-y-3 text-sm">
-        <li class="bg-white rounded-2xl shadow p-4">
-          <strong>WalyEldeen, A.A.</strong>, Sabet, S., Anis, S.E., Stein, T., and Ibrahim, A.M.  
-          <em>“FBLN2 is associated with basal cell markers Krt14 and ITGB1 in mouse mammary epithelial cells and has a
-          preferential expression in molecular subtypes of human breast cancer.”</em> Breast Cancer Research and
-          Treatment 208(3): 673–686, 2024.
-        </li>
-      </ul>
+        <!-- 2024 -->
+        <div class="year-block card bg-white/90 rounded-2xl border border-white/70" data-year="2024">
+          <button
+            type="button"
+            class="w-full flex items-center justify-between px-5 py-3 text-left"
+          >
+            <span class="font-semibold text-base">2024</span>
+            <span class="year-chevron text-xs text-muted-text">▼</span>
+          </button>
+          <div class="year-body px-5 pb-4">
+            <ul class="space-y-3">
+              <li>
+                <strong>WalyEldeen, A.A.</strong>, Sabet, S., Anis, S.E., Stein, T., and Ibrahim, A.M.  
+                <em>“FBLN2 is associated with basal cell markers Krt14 and ITGB1 in mouse mammary epithelial cells and
+                has a preferential expression in molecular subtypes of human breast cancer.”</em> Breast Cancer Research
+                and Treatment 208(3): 673–686, 2024.
+              </li>
+            </ul>
+          </div>
+        </div>
 
-      <h3 class="text-2xl font-semibold mt-6 mb-2">2023</h3>
-      <ul class="space-y-3 text-sm">
-        <li class="bg-white rounded-2xl shadow p-4">
-          <strong>WalyEldeen, A.A.</strong>, Sabet, S., EL-SHORBAGY, H.A.I.D.A.N.M., Abdelhamid, I.A., and Ibrahim,
-          S.A.A.  
-          <em>“Chalcones: Promising therapeutic agents targeting key players and signaling pathways regulating the
-          hallmarks of cancer.”</em> Chemico-Biological Interactions 369: 110297, 2023.
-        </li>
-        <li class="bg-white rounded-2xl shadow p-4">
-          Emad, B., <strong>WalyEldeen, A.A.</strong>, Hassan, H., Sharaky, M., Abdelhamid, I.A., Ibrahim, S.A.A., and
-          Mohamed, H.R.H.  
-          <em>“Yttrium Oxide nanoparticles induce cytotoxicity, genotoxicity, apoptosis, and ferroptosis in the human
-          triple-negative breast cancer MDA-MB-231 cells.”</em> BMC Cancer 23(1): 1151, 2023.
-        </li>
-      </ul>
+        <!-- 2023 -->
+        <div class="year-block card bg-white/90 rounded-2xl border border-white/70" data-year="2023">
+          <button
+            type="button"
+            class="w-full flex items-center justify-between px-5 py-3 text-left"
+          >
+            <span class="font-semibold text-base">2023</span>
+            <span class="year-chevron text-xs text-muted-text">▼</span>
+          </button>
+          <div class="year-body px-5 pb-4">
+            <ul class="space-y-3">
+              <li>
+                <strong>WalyEldeen, A.A.</strong>, Sabet, S., EL-SHORBAGY, H.A.I.D.A.N.M., Abdelhamid, I.A., and
+                Ibrahim, S.A.A.  
+                <em>“Chalcones: Promising therapeutic agents targeting key players and signaling pathways regulating the
+                hallmarks of cancer.”</em> Chemico-Biological Interactions 369: 110297, 2023.
+              </li>
+              <li>
+                Emad, B., <strong>WalyEldeen, A.A.</strong>, Hassan, H., Sharaky, M., Abdelhamid, I.A., Ibrahim,
+                S.A.A., and Mohamed, H.R.H.  
+                <em>“Yttrium Oxide nanoparticles induce cytotoxicity, genotoxicity, apoptosis, and ferroptosis in the
+                human triple-negative breast cancer MDA-MB-231 cells.”</em> BMC Cancer 23(1): 1151, 2023.
+              </li>
+            </ul>
+          </div>
+        </div>
 
-      <h3 class="text-2xl font-semibold mt-6 mb-2">2022</h3>
-      <ul class="space-y-3 text-sm">
-        <li class="bg-white rounded-2xl shadow p-4">
-          <strong>WalyEldeen, A.A.</strong>, EL-SHORBAGY, H.A.I.D.A.N.M., Hassaneen, H.M., Abdelhamid, I.A., Sabet, S., and
-          Ibrahim, S.A.A.  
-          <em>“[1,2,4] Triazolo [3,4-a]isoquinoline chalcone derivative exhibits anticancer activity via induction of
-          oxidative stress, DNA damage, and apoptosis in Ehrlich solid carcinoma-bearing mice.”</em>
-          Naunyn-Schmiedeberg's Archives of Pharmacology 395(10): 1225–1238, 2022.
-        </li>
-        <li class="bg-white rounded-2xl shadow p-4">
-          Alghamdi, A.A.A., <strong>WalyEldeen, A.</strong>, and Ibrahim, S.  
-          <em>“Nanoparticles as a Therapeutic Approach for Tumor Angiogenesis.”</em> In: Innovative Approaches for
-          Nanobiotechnology in Healthcare Systems, IGI Global, 2022.
-        </li>
-      </ul>
+        <!-- 2022 -->
+        <div class="year-block card bg-white/90 rounded-2xl border border-white/70" data-year="2022">
+          <button
+            type="button"
+            class="w-full flex items-center justify-between px-5 py-3 text-left"
+          >
+            <span class="font-semibold text-base">2022</span>
+            <span class="year-chevron text-xs text-muted-text">▼</span>
+          </button>
+          <div class="year-body px-5 pb-4">
+            <ul class="space-y-3">
+              <li>
+                <strong>WalyEldeen, A.A.</strong>, EL-SHORBAGY, H.A.I.D.A.N.M., Hassaneen, H.M., Abdelhamid, I.A.,
+                Sabet, S., and Ibrahim, S.A.A.  
+                <em>“[1,2,4] Triazolo [3,4-a]isoquinoline chalcone derivative exhibits anticancer activity via induction
+                of oxidative stress, DNA damage, and apoptosis in Ehrlich solid carcinoma-bearing mice.”</em>
+                Naunyn-Schmiedeberg's Archives of Pharmacology 395(10): 1225–1238, 2022.
+              </li>
+              <li>
+                Alghamdi, A.A.A., <strong>WalyEldeen, A.</strong>, and Ibrahim, S.  
+                <em>“Nanoparticles as a Therapeutic Approach for Tumor Angiogenesis.”</em> In: Innovative Approaches for
+                Nanobiotechnology in Healthcare Systems, IGI Global, 2022.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- TRAINING & WORKSHOPS -->
     <section id="training" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
-      <h2 class="text-3xl font-semibold mb-6">Training & Workshops</h2>
+      <h2 class="text-3xl font-semibold mb-6">Training &amp; Workshops</h2>
 
       <div class="grid md:grid-cols-2 gap-6 text-sm">
-        <div class="bg-white rounded-2xl shadow p-5">
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70">
           <h3 class="text-lg font-semibold mb-3">Recent (2020–2025)</h3>
           <ul class="space-y-2 list-disc list-inside">
-            <li>2025 – Training course on applications of artificial intelligence, Faculty and Leadership Development Centre, Cairo University.</li>
+            <li>2025 – Training course on applications of artificial intelligence, FLDC, Cairo University.</li>
             <li>2025 – Computational Biophysics Workshop, Faculty of Science, Cairo University.</li>
             <li>2025 – Pathology Insights Conferences 2025.</li>
             <li>2025 – International conference of the Society of Endometriosis in Egypt.</li>
             <li>2024 – Metabolomics Day, 57357 Children’s Hospital.</li>
-            <li>2024 – Effective Presentation Skills course, Faculty and Leadership Development Centre, Cairo University.</li>
-            <li>2023 – Biostatistics workshop in Assisted Reproduction Technologies, Egyptian Society of Embryology and Assisted Reproduction Technologies.</li>
-            <li>2022 – Workshop on genetic testing in Assisted Reproduction Technologies (ESEART).</li>
-            <li>2021 – Workshop on the role of the andrology laboratory in Assisted Reproduction Technologies (ESEART).</li>
+            <li>2024 – Effective Presentation Skills course, FLDC, Cairo University.</li>
+            <li>2023 – Biostatistics workshop in ART, Egyptian Society of Embryology and ART.</li>
+            <li>2022 – Workshop on genetic testing in ART, ESEART.</li>
+            <li>2021 – Andrology lab workshop in ART, ESEART.</li>
           </ul>
         </div>
 
-        <div class="bg-white rounded-2xl shadow p-5">
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70">
           <h3 class="text-lg font-semibold mb-3">Earlier Experience</h3>
           <ul class="space-y-2 list-disc list-inside">
-            <li>2020 – Online seminar “Targeting metastatic breast cancer”, Denis Wirtz, Johns Hopkins University.</li>
-            <li>2020 – Training course on using technology in education, FLDC, Cairo University.</li>
-            <li>2020 – Training course in “International publishing of scientific papers”, FLDC, Cairo University.</li>
-            <li>2019 – International winter school on bioinformatics, Nile University in collaboration with Rostock University.</li>
-            <li>2019 – International summer school on bioinformatics, Nile University and Rostock University.</li>
-            <li>2019 – Biostatistics program (8 levels), Egyptian Association for Animal Research Advancement, Cairo University.</li>
-            <li>2019 – Workshop on laboratory animal husbandry, handling, and basic techniques (FELASA-based), EAARA & Utrecht University.</li>
+            <li>2020 – Online seminar “Targeting metastatic breast cancer”, Johns Hopkins University.</li>
+            <li>2020 – Training in using technology in education, FLDC, Cairo University.</li>
+            <li>2020 – Training course in international publishing of scientific papers, FLDC, Cairo University.</li>
+            <li>2019 – International winter and summer schools on bioinformatics, Nile University &amp; Rostock University.</li>
+            <li>2019 – Biostatistics program (8 levels), Egyptian Association for Animal Research Advancement.</li>
+            <li>2019 – Laboratory animal handling and techniques workshop (FELASA-based), EAARA &amp; Utrecht University.</li>
             <li>2019 – Symposium “How to write a successful animal care protocol”, Cairo University.</li>
             <li>2019 – Critical thinking course, FLDC, Cairo University.</li>
-            <li>2019 – Internship, Aswan Heart Center (Magdi Yacoub Foundation), Life Science Department (wet lab techniques).</li>
+            <li>2019 – Internship, Aswan Heart Center, Life Science Department.</li>
             <li>2014 – Participant in “Next Generation Cancer Research and Diagnosis” conference.</li>
           </ul>
         </div>
@@ -461,19 +535,20 @@
 
     <!-- ORGANIZATION EXPERIENCE -->
     <section class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
-      <h2 class="text-3xl font-semibold mb-6">Organization & Outreach Experience</h2>
+      <h2 class="text-3xl font-semibold mb-6">Organization &amp; Outreach Experience</h2>
       <ul class="space-y-3 text-sm">
-        <li class="bg-white rounded-2xl shadow p-4">
-          <strong>2022:</strong> Presenter and organizer of “Hands-on basic and advanced cell culture techniques” workshop, Egyptian Society of Embryology and Assisted Reproduction Technologies.
+        <li class="card bg-white/90 rounded-2xl p-4 border border-white/70">
+          <strong>2022:</strong> Presenter &amp; organizer – “Hands-on basic and advanced cell culture techniques”
+          workshop, Egyptian Society of Embryology and Assisted Reproduction Technologies.
         </li>
-        <li class="bg-white rounded-2xl shadow p-4">
-          <strong>2020:</strong> Presenter of online workshop “Introduction to Bioinformatics Tools”.
+        <li class="card bg-white/90 rounded-2xl p-4 border border-white/70">
+          <strong>2020:</strong> Presenter – Online workshop “Introduction to Bioinformatics Tools”.
         </li>
-        <li class="bg-white rounded-2xl shadow p-4">
-          <strong>2019:</strong> Organizer of workshop “Sustainable development, scientific research, and labor market”, Faculty of Science, Cairo University.
+        <li class="card bg-white/90 rounded-2xl p-4 border border-white/70">
+          <strong>2019:</strong> Organizer – Workshop “Sustainable development, scientific research, and labor market”, Faculty of Science, Cairo University.
         </li>
-        <li class="bg-white rounded-2xl shadow p-4">
-          <strong>2018:</strong> Organizer of workshop “Requirements of work and different aspects for working for graduates of Zoology Department”.
+        <li class="card bg-white/90 rounded-2xl p-4 border border-white/70">
+          <strong>2018:</strong> Organizer – Workshop “Requirements of work and different aspects for working for graduates of Zoology Department”.
         </li>
       </ul>
     </section>
@@ -485,19 +560,19 @@
         Weekly practical teaching for undergraduate students at the Department of Zoology, Faculty of Science, Cairo University.
       </p>
       <ul class="space-y-3 text-sm">
-        <li class="bg-white rounded-2xl shadow p-4">
-          Practical General Zoology I & II – First-year undergraduate students.
+        <li class="card bg-white/90 rounded-2xl p-4 border border-white/70">
+          Practical General Zoology I &amp; II – First-year undergraduate students.
         </li>
-        <li class="bg-white rounded-2xl shadow p-4">
+        <li class="card bg-white/90 rounded-2xl p-4 border border-white/70">
           Practical Cell Biology – Second-year undergraduate students.
         </li>
-        <li class="bg-white rounded-2xl shadow p-4">
+        <li class="card bg-white/90 rounded-2xl p-4 border border-white/70">
           Practical Genetics – Second-year undergraduate students.
         </li>
-        <li class="bg-white rounded-2xl shadow p-4">
+        <li class="card bg-white/90 rounded-2xl p-4 border border-white/70">
           Practical Histochemistry – Fourth-year undergraduate students.
         </li>
-        <li class="bg-white rounded-2xl shadow p-4">
+        <li class="card bg-white/90 rounded-2xl p-4 border border-white/70">
           Practical Molecular Biology – Fourth-year undergraduate students.
         </li>
       </ul>
@@ -507,12 +582,12 @@
     <section id="skills" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
       <h2 class="text-3xl font-semibold mb-6">Skills</h2>
       <div class="grid md:grid-cols-3 gap-6 text-sm">
-        <div class="bg-white rounded-2xl shadow p-5">
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70">
           <h3 class="text-lg font-semibold mb-3">Laboratory Skills</h3>
           <ul class="space-y-1 list-disc list-inside">
-            <li>DNA and RNA extraction (tissue & blood)</li>
+            <li>DNA &amp; RNA extraction (tissue and blood)</li>
             <li>PCR and Real-Time PCR</li>
-            <li>Culturing and sub-culturing of cell lines</li>
+            <li>Cell culture and sub-culturing of cell lines</li>
             <li>miRNA extraction</li>
             <li>Western blot</li>
             <li>Immunohistochemistry</li>
@@ -521,8 +596,8 @@
             <li>ELISA</li>
           </ul>
         </div>
-        <div class="bg-white rounded-2xl shadow p-5">
-          <h3 class="text-lg font-semibold mb-3">Computational & Analysis</h3>
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70">
+          <h3 class="text-lg font-semibold mb-3">Computational &amp; Analysis</h3>
           <ul class="space-y-1 list-disc list-inside">
             <li>Protein modeling</li>
             <li>Molecular docking</li>
@@ -531,16 +606,16 @@
             <li>Bioinformatics workflows</li>
           </ul>
         </div>
-        <div class="bg-white rounded-2xl shadow p-5">
-          <h3 class="text-lg font-semibold mb-3">Technical & Digital</h3>
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70">
+          <h3 class="text-lg font-semibold mb-3">Technical &amp; Digital</h3>
           <ul class="space-y-1 list-disc list-inside">
-            <li>Program development using AI</li>
-            <li>Website development using AI tools</li>
+            <li>Program development using AI tools</li>
+            <li>Website creation using AI-assisted workflows</li>
           </ul>
-          <h3 class="text-lg font-semibold mt-4 mb-2">Interests & Hobbies</h3>
+          <h3 class="text-lg font-semibold mt-4 mb-2">Interests &amp; Hobbies</h3>
           <p>
-            Photography – participant in multiple galleries at Sakia El Sawy and Cairo University
-            competitions, and recipient of an appreciation award.
+            Photography – participant in multiple galleries at Sakia El Sawy and Cairo University competitions,
+            and recipient of an appreciation award.
           </p>
         </div>
       </div>
@@ -549,7 +624,7 @@
     <!-- THESIS -->
     <section id="thesis" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
       <h2 class="text-3xl font-semibold mb-6">Master’s Thesis</h2>
-      <div class="bg-white rounded-2xl shadow p-5 text-sm">
+      <div class="card bg-white/90 rounded-2xl p-5 border border-white/70 text-sm">
         <h3 class="text-lg font-semibold mb-2">
           Evaluation of the Potential Anticancer Effect of a Novel Chalcone Derivative in Ehrlich Solid
           Carcinoma-Bearing Mice
@@ -560,41 +635,41 @@
         <p class="mb-2">
           <strong>Examiners:</strong><br />
           • Prof. Dr. Burkhard Greve, Department of Radiotherapy–Radio Oncology, University Hospital Münster<br />
-          • Prof. Dr. Ahmed Said Alazzouni, Department of Histology and Histochemistry, Faculty of Science,
-          Helwan University
+          • Prof. Dr. Ahmed Said Alazzouni, Department of Histology and Histochemistry, Faculty of Science, Helwan University
         </p>
       </div>
     </section>
 
     <!-- CONTACT & REFERENCES -->
     <section id="contact" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
-      <h2 class="text-3xl font-semibold mb-6">Contact & References</h2>
+      <h2 class="text-3xl font-semibold mb-6">Contact &amp; References</h2>
       <div class="grid md:grid-cols-2 gap-6 text-sm">
-        <div class="bg-white rounded-2xl shadow p-5">
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70">
           <h3 class="text-lg font-semibold mb-3">Contact</h3>
-          <p><strong>Affiliation:</strong><br />Cellular and Molecular Biosciences Research Lab,<br />Department of Zoology, Faculty of Science,<br />Cairo University, 12613 Giza, Egypt.</p>
+          <p><strong>Affiliation:</strong><br />Cellular &amp; Molecular Biosciences Research Lab,<br />Department of Zoology, Faculty of Science,<br />Cairo University, 12613 Giza, Egypt.</p>
           <p class="mt-3">
             <strong>Email:</strong><br />
-            <a href="mailto:awalyeldeen@sci.cu.edu.eg" class="text-primary-blue hover:underline">awalyeldeen@sci.cu.edu.eg</a><br />
-            <a href="mailto:amr.waly.eldeen@gmail.com" class="text-primary-blue hover:underline">amr.waly.eldeen@gmail.com</a>
+            <a href="mailto:awalyeldeen@sci.cu.edu.eg" class="text-brand-primary hover:underline">awalyeldeen@sci.cu.edu.eg</a><br />
+            <a href="mailto:amr.waly.eldeen@gmail.com" class="text-brand-primary hover:underline">amr.waly.eldeen@gmail.com</a>
           </p>
           <p class="mt-3">
             <strong>Phone:</strong><br />+20 1091414517
           </p>
         </div>
 
-        <div class="bg-white rounded-2xl shadow p-5">
+        <div class="card bg-white/90 rounded-2xl p-5 border border-white/70">
           <h3 class="text-lg font-semibold mb-3">Academic References</h3>
           <p class="mb-3">
-            <strong>Professor Dr. Sherif Ibrahim</strong><br />
+            <strong>Prof. Dr. Sherif Abdelaziz Ibrahim</strong><br />
             Zoology Department, Faculty of Science, Cairo University<br />
-            Email: <a href="mailto:isherif@sci.cu.edu.eg" class="text-primary-blue hover:underline">isherif@sci.cu.edu.eg</a>
+            Email: <a href="mailto:isherif@sci.cu.edu.eg" class="text-brand-primary hover:underline">isherif@sci.cu.edu.eg</a>
           </p>
           <p>
-            <strong>Professor Dr. Salwa Farouk Sabet</strong><br />
+            <strong>Prof. Dr. Salwa Farouk Sabet</strong><br />
             Zoology Department, Faculty of Science, Cairo University<br />
-            Email: <a href="mailto:salwasabet@gmail.com" class="text-primary-blue hover:underline">salwasabet@gmail.com</a>,
-            <a href="mailto:salwasabet@cu.edu.eg" class="text-primary-blue hover:underline">salwasabet@cu.edu.eg</a>
+            Email:
+            <a href="mailto:salwasabet@gmail.com" class="text-brand-primary hover:underline">salwasabet@gmail.com</a>,
+            <a href="mailto:salwasabet@cu.edu.eg" class="text-brand-primary hover:underline">salwasabet@cu.edu.eg</a>
           </p>
         </div>
       </div>
@@ -602,7 +677,7 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="border-t border-blue-100 bg-white mt-8">
+  <footer class="border-t border-slate-200 bg-white/90 mt-4">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 text-xs text-muted-text flex flex-wrap justify-between gap-2">
       <span>© <span id="year"></span> Amr Ahmed WalyEldeen.</span>
       <span>Faculty of Science, Cairo University.</span>
@@ -612,49 +687,86 @@
   <!-- Back to top button -->
   <button
     id="back-to-top"
-    class="w-10 h-10 rounded-full bg-primary-blue text-white flex items-center justify-center shadow-lg hover:bg-[#005f8f]"
+    class="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center shadow-soft hover:bg-[#005f8f]"
     aria-label="Back to top"
   >
     ↑
   </button>
 
-  <!-- Simple JS: year, scroll progress, fade-in, back-to-top -->
+  <!-- JavaScript for year, scroll, fade-in, publications sorting & collapse -->
   <script>
+    // Year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Scroll progress bar
+    // Scroll progress bar & back-to-top visibility
     const progressBar = document.getElementById('progress-bar');
+    const backToTopBtn = document.getElementById('back-to-top');
     window.addEventListener('scroll', () => {
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = (scrollTop / height) * 100;
       progressBar.style.width = scrolled + '%';
 
-      // back to top button
-      const btn = document.getElementById('back-to-top');
       if (scrollTop > 300) {
-        btn.style.display = 'flex';
+        backToTopBtn.style.display = 'flex';
       } else {
-        btn.style.display = 'none';
+        backToTopBtn.style.display = 'none';
       }
     });
 
-    document.getElementById('back-to-top').addEventListener('click', () => {
+    backToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     // Fade-in on scroll
     const fadeEls = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
+    const fadeObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.18 }
+    );
+    fadeEls.forEach(el => fadeObserver.observe(el));
 
-    fadeEls.forEach(el => observer.observe(el));
+    // Publications: collapsible years
+    const yearBlocks = document.querySelectorAll('.year-block');
+    yearBlocks.forEach(block => {
+      const btn = block.querySelector('button');
+      btn.addEventListener('click', () => {
+        block.classList.toggle('open');
+      });
+    });
+    // Open newest year by default (2025)
+    const newest = document.querySelector('.year-block[data-year="2025"]');
+    if (newest) {
+      newest.classList.add('open');
+    }
+
+    // Publications: sort by year (asc/desc)
+    const pubSortSelect = document.getElementById('pub-sort');
+    const yearsContainer = document.getElementById('pub-years-container');
+
+    function sortYearBlocks(order) {
+      const blocksArray = Array.from(document.querySelectorAll('.year-block'));
+      blocksArray.sort((a, b) => {
+        const ya = parseInt(a.dataset.year, 10);
+        const yb = parseInt(b.dataset.year, 10);
+        return order === 'asc' ? ya - yb : yb - ya;
+      });
+      blocksArray.forEach(block => yearsContainer.appendChild(block));
+    }
+
+    pubSortSelect.addEventListener('change', (e) => {
+      sortYearBlocks(e.target.value);
+    });
+
+    // Initial sort (newest first)
+    sortYearBlocks('desc');
   </script>
 </body>
 </html>
