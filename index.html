@@ -1,3 +1,197 @@
+ChatGPT Plus
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Pasted text(142).txt
+Document
+
+Pasted text (2)(7).txt
+Document
+the following is my website in github 
+i need first to update my list of publication as i will give you all list of publication so you can update it in the website 
+give me the whole code updated 
+
+I’ll update the existing HTML by replacing the Publications section with your full 2022–2026 list, then adjust the publication count so the site remains consistent.
+
+I’ve finished the replacement logic: the Publications section now has 2026, 2025, 2024, 2023, and 2022 blocks, 15 total entries, DOI links where supplied, and 2026 opens first by default.
+
+Index Updated Publications
+· html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amr Ahmed WalyEldeen | Academic Portfolio</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Pacifico&display=swap"
+    rel="stylesheet"
+  />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            signature: ['Pacifico', 'cursive'],
+          },
+          colors: {
+            'brand-dark': '#020617',
+            'brand-primary': '#0077b6',
+            'brand-soft': '#e3f2ff',
+            'brand-accent': '#00b4d8',
+            'muted-text': '#556276',
+          },
+          boxShadow: {
+            soft: '0 14px 35px rgba(15, 23, 42, 0.14)',
+          }
+Thought for 3m 6s
+Done — I updated the full website code using your existing HTML file and the publication list you provided. 
+
+ 
+
+
+Changes made:
+
+Added the new 2026 publications section.
+
+Updated all publication years from 2022–2026.
+
+Added 15 total listed publications in the stats area.
+
+Added DOI links where available.
+
+Changed the default expanded publication year from 2025 to 2026.
+
+Kept the same design, layout, dark mode, sorting, and collapsible year behavior.
+
+You can copy the full updated code from the canvas, or download it here:
+
+Download updated index.html
+
+
+
+
+
+Pasted text(143).txt
+Document
+very good i will give you my cv so you can update all fields and also add a field on the above for awards 
+
+
+I’ll update the full HTML again using the CV content: add an Awards navigation item and section near the top, then revise education, projects, thesis, training, conferences, organization, skills, memberships/service, contact, and references.
+
+Thought for 2m 25s
+Done — I updated the website code using your CV content. I added an Awards item in the top navigation and created a full Awards section near the top of the page. I also updated education, projects, Ph.D./Master’s thesis details, training, conferences, organization experience, skills, memberships/service, contact, and references from your CV. 
+
+ 
+
+ 
+
+
+Download the full updated code here:
+
+Download updated index.html
+
+Note: I kept the existing Download CV button pointing to Amr_CV_2025.pdf because you provided CV text, not a final PDF filename. Replace that PDF in GitHub or tell me the new filename and I’ll update the button path.
+
+
+
+
+make it married only 
+make projects as title grant id funding institute role only remove budget outputs duration 
+
+Phd thesis remove publications 
+
+I’ll make those three targeted edits now: simplify marital status, compress the projects section to the requested fields only, and remove Ph.D. thesis publication details.
+
+Thought for 48s
+Done — I made the requested edits:
+
+Marital status is now: Married
+
+Projects now show only:
+
+Title
+
+Grant ID
+
+Funding Institute
+
+Role
+
+Removed Duration, Budget, and Outputs from Projects
+
+Removed the Ph.D. thesis publications subsection
+
+Download the corrected HTML here:
+
+Download updated index.html
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -242,9 +436,10 @@
 
       <div class="flex items-center gap-3">
         <!-- Desktop nav -->
-        <nav class="hidden md:flex gap-4 text-sm font-medium text-muted-text dark:text-gray-300">
+        <nav class="hidden md:flex gap-3 text-xs lg:text-sm font-medium text-muted-text dark:text-gray-300">
           <a href="#about" class="hover:text-brand-primary dark:hover:text-sky-300">About</a>
           <a href="#education" class="hover:text-brand-primary dark:hover:text-sky-300">Education</a>
+          <a href="#awards" class="hover:text-brand-primary dark:hover:text-sky-300">Awards</a>
           <a href="#experience" class="hover:text-brand-primary dark:hover:text-sky-300">Experience</a>
           <a href="#projects" class="hover:text-brand-primary dark:hover:text-sky-300">Projects</a>
           <a href="#publications" class="hover:text-brand-primary dark:hover:text-sky-300">Publications</a>
@@ -316,6 +511,7 @@
         <li><a href="#home" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Home</a></li>
         <li><a href="#about" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">About</a></li>
         <li><a href="#education" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Education</a></li>
+        <li><a href="#awards" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Awards</a></li>
         <li><a href="#experience" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Experience</a></li>
         <li><a href="#projects" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Projects</a></li>
         <li><a href="#publications" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Publications</a></li>
@@ -387,16 +583,16 @@
     <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-8 fade-in">
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <div class="card card-hover rounded-2xl p-4 text-center">
-          <div class="text-2xl font-bold text-brand-primary dark:text-sky-300">M.Sc.</div>
-          <div class="text-xs uppercase tracking-wide text-muted-text dark:text-gray-400 mt-1">Cell Biology, Histology &amp; Genetics</div>
+          <div class="text-2xl font-bold text-brand-primary dark:text-sky-300">Ph.D.</div>
+          <div class="text-xs uppercase tracking-wide text-muted-text dark:text-gray-400 mt-1">Courses completed, 2023</div>
         </div>
         <div class="card card-hover rounded-2xl p-4 text-center">
-          <div class="text-2xl font-bold text-brand-primary dark:text-sky-300">2017</div>
-          <div class="text-xs uppercase tracking-wide text-muted-text dark:text-gray-400 mt-1">B.Sc. Zoology &amp; Chemistry (Honours)</div>
+          <div class="text-2xl font-bold text-brand-primary dark:text-sky-300">15</div>
+          <div class="text-xs uppercase tracking-wide text-muted-text dark:text-gray-400 mt-1">Listed publications</div>
         </div>
         <div class="card card-hover rounded-2xl p-4 text-center">
-          <div class="text-2xl font-bold text-brand-primary dark:text-sky-300">10+</div>
-          <div class="text-xs uppercase tracking-wide text-muted-text dark:text-gray-400 mt-1">Peer-reviewed publications</div>
+          <div class="text-2xl font-bold text-brand-primary dark:text-sky-300">7</div>
+          <div class="text-xs uppercase tracking-wide text-muted-text dark:text-gray-400 mt-1">Awards &amp; distinctions</div>
         </div>
         <div class="card card-hover rounded-2xl p-4 text-center">
           <div class="text-2xl font-bold text-brand-primary dark:text-sky-300">2</div>
@@ -425,11 +621,13 @@
     <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
       <h2 class="text-3xl font-semibold mb-6">About Me</h2>
       <p class="text-base leading-relaxed mb-6">
-        I am an <strong>Assistant Lecturer</strong> and researcher at the Department of Zoology, Faculty of Science,
-        Cairo University. My research interests span cancer biology, extracellular vesicles, tumor microenvironment,
-        and translational oncology. I am currently pursuing a Ph.D. focusing on
-        <strong>proteomic profiling of circulating exosomes from breast cancer patients</strong> to identify exosomal
-        proteome signatures as non-invasive, cost-effective biomarkers for early detection and disease monitoring.
+        I am an <strong>Assistant Lecturer</strong> and researcher in Cell Biology, Histology, and Genetics at Cairo University,
+        with experience in <strong>cancer cell biology</strong>, <strong>molecular oncology</strong>, and
+        <strong>extracellular vesicle biology</strong>. My research focuses on understanding the molecular mechanisms underlying
+        cancer progression, metastasis, and therapeutic resistance through advanced proteomic and bioinformatic approaches.
+        I am currently pursuing a Ph.D. involving <strong>proteomic profiling of circulating exosomes from breast cancer patients</strong>
+        to identify exosomal proteome signatures and support the development of cost-effective, non-invasive liquid biopsy tools
+        for early breast cancer detection.
       </p>
 
       <div class="grid md:grid-cols-2 gap-8">
@@ -437,26 +635,29 @@
           <h3 class="text-xl font-semibold mb-3">Personal Information</h3>
           <ul class="space-y-2 text-sm">
             <li><strong>Full name:</strong> Amr Ahmed Abdelfattah Ahmed WalyEldeen</li>
+            <li><strong>Date of birth:</strong> 10 July 1995</li>
             <li><strong>Nationality:</strong> Egyptian</li>
+            <li><strong>Marital status:</strong> Married</li>
             <li><strong>Current position:</strong> Assistant Lecturer of Cell, Histology &amp; Genetics</li>
             <li><strong>Affiliation:</strong> Cellular &amp; Molecular Biosciences Research Lab, Department of Zoology, Faculty of Science, Cairo University, 12613 Giza, Egypt</li>
+            <li><strong>Phone:</strong> <a href="tel:+201091414517" class="text-brand-primary dark:text-sky-300 hover:underline">+20 109 141 4517</a></li>
             <li><strong>Email:</strong> awalyeldeen@sci.cu.edu.eg &nbsp;|&nbsp; amr.waly.eldeen@gmail.com</li>
           </ul>
         </div>
         <div class="card card-hover rounded-2xl p-5">
           <h3 class="text-xl font-semibold mb-3">Academic Profiles</h3>
           <ul class="space-y-2 text-sm">
-            <li><a href="https://scholar.cu.edu.eg/?q=waly/" target="_blank" class="text-brand-primary dark:text-sky-300 hover:underline">Cairo Scholar</a></li>
-            <li><a href="https://scholar.google.com.eg/citations?hl=en&authuser=5&user=RGY0j08AAAAJ" target="_blank" class="text-brand-primary dark:text-sky-300 hover:underline">Google Scholar</a></li>
-            <li><a href="https://www.scopus.com/authid/detail.uri?authorId=57815650300" target="_blank" class="text-brand-primary dark:text-sky-300 hover:underline">Scopus</a></li>
-            <li><a href="https://orcid.org/0000-0002-2056-7288" target="_blank" class="text-brand-primary dark:text-sky-300 hover:underline">ORCID</a></li>
-            <li><a href="https://www.linkedin.com/in/amrwalyeldeen/" target="_blank" class="text-brand-primary dark:text-sky-300 hover:underline">LinkedIn</a></li>
+            <li><a href="https://scholar.cu.edu.eg/?q=waly/" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">Cairo Scholar</a></li>
+            <li><a href="https://scholar.google.com.eg/citations?hl=en&authuser=5&user=RGY0j08AAAAJ" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">Google Scholar</a></li>
+            <li><a href="https://www.scopus.com/authid/detail.uri?authorId=57815650300" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">Scopus</a></li>
+            <li><a href="https://orcid.org/0000-0002-2056-7288" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">ORCID</a></li>
+            <li><a href="https://www.linkedin.com/in/amrwalyeldeen/" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">LinkedIn</a></li>
           </ul>
 
-          <h3 class="text-xl font-semibold mt-6 mb-3">Languages</h3>
+          <h3 class="text-xl font-semibold mt-6 mb-3">Language Proficiency</h3>
           <ul class="space-y-1 text-sm">
-            <li><strong>Arabic:</strong> Native</li>
-            <li><strong>English:</strong> Fluent (spoken &amp; written)</li>
+            <li><strong>Arabic:</strong> Fluent spoken and written; mother tongue</li>
+            <li><strong>English:</strong> Fluent spoken and written</li>
           </ul>
         </div>
       </div>
@@ -468,6 +669,14 @@
       <div class="space-y-5">
         <div class="card card-hover rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-sm">
           <div>
+            <h3 class="text-lg font-semibold">Ph.D. Courses in Cell Biology, Histology &amp; Genetics</h3>
+            <p class="text-muted-text dark:text-gray-400">Faculty of Science, Cairo University, Egypt</p>
+            <p class="text-xs text-muted-text dark:text-gray-500 mt-1">Grade: Excellent, 94.625%</p>
+          </div>
+          <div class="font-semibold text-brand-primary dark:text-sky-300">2023</div>
+        </div>
+        <div class="card card-hover rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-sm">
+          <div>
             <h3 class="text-lg font-semibold">M.Sc. in Cell Biology, Histology &amp; Genetics</h3>
             <p class="text-muted-text dark:text-gray-400">Faculty of Science, Cairo University, Egypt</p>
           </div>
@@ -477,7 +686,7 @@
           <div>
             <h3 class="text-lg font-semibold">Pre-master Courses in Cell Biology, Histology &amp; Genetics</h3>
             <p class="text-muted-text dark:text-gray-400">Faculty of Science, Cairo University, Egypt</p>
-            <p class="text-xs text-muted-text dark:text-gray-500 mt-1">Grade: Very Good (84%)</p>
+            <p class="text-xs text-muted-text dark:text-gray-500 mt-1">Grade: Very Good, 84%</p>
           </div>
           <div class="font-semibold text-brand-primary dark:text-sky-300">2018</div>
         </div>
@@ -485,9 +694,44 @@
           <div>
             <h3 class="text-lg font-semibold">B.Sc. in Zoology &amp; Chemistry</h3>
             <p class="text-muted-text dark:text-gray-400">Faculty of Science, Cairo University, Egypt</p>
-            <p class="text-xs text-muted-text dark:text-gray-500 mt-1">Excellent with Honors (GPA 4.2/5, 92%)</p>
+            <p class="text-xs text-muted-text dark:text-gray-500 mt-1">Excellent with Honors, GPA 4.2/5, 92%</p>
           </div>
           <div class="font-semibold text-brand-primary dark:text-sky-300">2017</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section id="awards" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
+      <h2 class="text-3xl font-semibold mb-6">Awards</h2>
+      <div class="grid md:grid-cols-2 gap-5 text-sm">
+        <div class="card card-hover rounded-2xl p-5">
+          <div class="font-semibold text-lg">Cairo University International Publication Award</div>
+          <p class="text-muted-text dark:text-gray-400 mt-1">Cairo University · 2023, 2024, 2025</p>
+        </div>
+        <div class="card card-hover rounded-2xl p-5">
+          <div class="font-semibold text-lg">Winner of 2nd Place for Best Research Idea</div>
+          <p class="text-muted-text dark:text-gray-400 mt-1">Science at the Core of Innovation · 2026</p>
+        </div>
+        <div class="card card-hover rounded-2xl p-5">
+          <div class="font-semibold text-lg">Appreciation Award in the Faculty of Science Street Photography Competition</div>
+          <p class="text-muted-text dark:text-gray-400 mt-1">Faculty of Science · 2018</p>
+        </div>
+        <div class="card card-hover rounded-2xl p-5">
+          <div class="font-semibold text-lg">Faculty of Science Award for Top Graduating Students</div>
+          <p class="text-muted-text dark:text-gray-400 mt-1">Cairo University · 2018</p>
+        </div>
+        <div class="card card-hover rounded-2xl p-5">
+          <div class="font-semibold text-lg">Department of Zoology Award for the Top-Ranked Student, 1st Place</div>
+          <p class="text-muted-text dark:text-gray-400 mt-1">Cairo University · 2018</p>
+        </div>
+        <div class="card card-hover rounded-2xl p-5">
+          <div class="font-semibold text-lg">Dr. Zain Al-Abidin Award for First and Second-Ranked Students</div>
+          <p class="text-muted-text dark:text-gray-400 mt-1">Faculty of Science Graduating Class · 2018</p>
+        </div>
+        <div class="card card-hover rounded-2xl p-5 md:col-span-2">
+          <div class="font-semibold text-lg">Syndicate of Scientific Professions Award for Top Graduates of the Faculty of Science</div>
+          <p class="text-muted-text dark:text-gray-400 mt-1">Syndicate of Scientific Professions · 2017</p>
         </div>
       </div>
     </section>
@@ -534,18 +778,18 @@
           <h3 class="text-lg font-semibold mb-2">
             Extracellular vesicle-derived proteoglycans as non-invasive liquid biopsy-based cancer biomarkers: Towards novel breast cancer screening
           </h3>
-          <p><strong>Project ID:</strong> 46282</p>
-          <p><strong>Role:</strong> Research team member (Researcher B, M.Sc. holder)</p>
-          <p><strong>Funding Institution:</strong> Science, Technology &amp; Innovation Funding Authority (STDF), Egypt</p>
+          <p><strong>Grant ID:</strong> 46282</p>
+          <p><strong>Funding Institute:</strong> Science, Technology &amp; Innovation Funding Authority (STDF), Egypt</p>
+          <p><strong>Role:</strong> Member of the research team; Researcher B, M.Sc. holder</p>
         </div>
 
         <div class="card card-hover rounded-2xl p-5">
           <h3 class="text-lg font-semibold mb-2">
             Proteomic profiling of exosomes: Discovery of novel diagnostic biomarkers for lymph node metastasis in breast cancer
           </h3>
-          <p><strong>Project ID:</strong> Respect1-10052</p>
-          <p><strong>Role:</strong> Research team member (Researcher B, M.Sc. holder)</p>
-          <p><strong>Funding Institution:</strong> Academy of Scientific Research &amp; Technology (ASRT), Egypt</p>
+          <p><strong>Grant ID:</strong> Respect1-10052</p>
+          <p><strong>Funding Institute:</strong> Academy of Scientific Research &amp; Technology (ASRT), Egypt</p>
+          <p><strong>Role:</strong> Member of the research team; Researcher B, M.Sc. holder</p>
         </div>
       </div>
     </section>
@@ -569,6 +813,46 @@
       </div>
 
       <div id="pub-years-container" class="space-y-3 text-sm">
+        <!-- 2026 -->
+        <div class="year-block card card-hover rounded-2xl" data-year="2026">
+          <button
+            type="button"
+            class="w-full flex items-center justify-between px-5 py-3 text-left"
+          >
+            <span class="font-semibold text-base">2026</span>
+            <span class="year-chevron text-xs text-muted-text dark:text-gray-400">▼</span>
+          </button>
+          <div class="year-body px-5 pb-4">
+            <ul class="space-y-3">
+              <li>
+                <strong>WalyEldeen, A.A.</strong>, Mohamed, G., Taha, S.N., Gameel, A.M., Talat, L.Y., et al.  
+                <em>“Plasma small-extracellular vesicles’ proteomic signature in neoadjuvant chemotherapy–naïve breast cancer patients.”</em>
+                PLOS ONE 21(5): e0348500, 2026.
+                <a href="https://doi.org/10.1371/journal.pone.0348500" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">DOI</a>
+              </li>
+              <li>
+                Talat, L.Y., <strong>WalyEldeen, A.A.</strong>, Mohamed, G., Ibraheem, M.H., Maher, M.M.,
+                Ibrahim, S.A., Hassan, H., and Götte, M.  
+                <em>“Large Extracellular Vesicle-Derived Latent MMP-8 and Gelatinolytically Active MMP-2 as Potential Circulating Markers for Lymph Node Metastasis in Breast Cancer.”</em>
+                Cancers 18: 1464, 2026.
+                <a href="https://doi.org/10.3390/cancers18091464" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">DOI</a>
+              </li>
+              <li>
+                Ibrahim, N.S., <strong>WalyEldeen, A.A.</strong>, Ibrahim, S.A., et al.  
+                <em>“Synthesis and cytotoxicity of novel cyanochalcones: induction of cell cycle arrest, apoptosis, and autophagy in HEP2 and MCF-7 cells.”</em>
+                Naunyn-Schmiedeberg's Archives of Pharmacology 399: 8867–8882, 2026.
+                <a href="https://doi.org/10.1007/s00210-025-04940-z" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">DOI</a>
+              </li>
+              <li>
+                Zhran, E.A., Aboushousha, T., <strong>WalyEldeen, A.A.</strong>, Hegab, F., and Ibrahim, S.A.  
+                <em>“Cullin1 overexpression is associated with colorectal cancer progression and poor prognosis.”</em>
+                Tissue and Cell 98: 103194, 2026.
+                <a href="https://doi.org/10.1016/J.TICE.2025.103194" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">DOI</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
         <!-- 2025 -->
         <div class="year-block card card-hover rounded-2xl" data-year="2025">
           <button
@@ -582,41 +866,42 @@
             <ul class="space-y-3">
               <li>
                 Troschel, F., Brücksken, K.A., Meier, F.K., Meißner, C., Poschmann, G., Korsching, E., Hassan, H.,
-                <strong>WalyEldeen, A.A.</strong>, Ibrahim, S.A., and Samer, R.M.  
-                <em>“Knockdown and Inhibition of RNA-Binding Proteins Musashi-1 and Musashi-2 Modulate DNA Repair and
-                Radiosensitize Triple-Negative Breast Cancer.”</em> International Journal of Radiation Oncology, Biology,
-                Physics, 123(1): e515, 2025.
+                <strong>WalyEldeen, A.A.</strong>, Ibrahim, S.A., Samer, R.M., Sicking, M., Götte, M., Greve, B., and Eich, H.T.T.  
+                <em>“Knockdown and Inhibition of RNA-Binding Proteins Musashi-1 and Musashi-2 Modulate DNA Repair and Radiosensitize Triple-Negative Breast Cancer.”</em>
+                International Journal of Radiation Oncology, Biology, Physics 123(1): e515, 2025.
+                <a href="https://doi.org/10.1016/j.ijrobp.2025.06.2677" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">DOI</a>
               </li>
               <li>
-                Talat, L.Y., Mohamed, G., Ibraheem, M.H., <strong>WalyEldeen, A.A.</strong>, Hassan, H., and Ibrahim,
-                S.A.A.  
-                <em>“SDC2 and FN as cargo proteins in circulating extracellular vesicles in obese breast cancer patients
-                with lymph node metastasis.”</em> Scientific Reports 15(1): 32498, 2025.
+                Talat, L.Y., Mohamed, G., Ibraheem, M.H., <strong>WalyEldeen, A.A.</strong>, Hassan, H., and Ibrahim, S.A.  
+                <em>“SDC2 and FN as cargo proteins in circulating extracellular vesicles in obese breast cancer patients with lymph node metastasis.”</em>
+                Scientific Reports 15(1): 32498, 2025.
+                <a href="https://doi.org/10.1038/s41598-025-17638-2" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">DOI</a>
               </li>
               <li>
-                Sayed, A.A., Abdullah, M.S., <strong>WalyEldeen, A.A.</strong>, Sayed, R.M.S., Gabre, R.M., Ibrahim,
-                S.A.A., and Hassan, H.  
-                <em>“Cicer arietinum extract as antitumor and protective agent against Ehrlich Solid
-                Carcinoma-bearing mice.”</em> BMC Complementary Medicine and Therapies 25(1): 325, 2025.
+                Sayed, A.A., Abdullah, M.S., <strong>WalyEldeen, A.A.</strong>, Sayed, R.M.S., Gabre, R.M., Ibrahim, S.A., and Hassan, H.  
+                <em>“Cicer arietinum extract as antitumor and protective agent against Ehrlich Solid Carcinoma-bearing mice.”</em>
+                BMC Complementary Medicine and Therapies 25(1): 325, 2025.
+                <a href="https://doi.org/10.1186/S12906-025-05061-Z" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">DOI</a>
               </li>
               <li>
                 Kotb, M.A., Abdelmawgood, I.A., <strong>WalyEldeen, A.A.</strong>, Abdelaziz, M.H., Khalaf, M.L.,
-                Mohamed, A.S., Dakrory, A.E., and Ibrahim, S.A.A.  
-                <em>“Chrysin-loaded PLGA nanoparticles alleviate the implantation of endometriotic lesions via attenuation
-                of peritoneal inflammation and downregulating NF-κB activation-driven expression of angiogenic
-                factors.”</em> Journal of Drug Delivery Science and Technology: 106984, 2025.
+                Mohamed, A.S., Dakrory, A.E., and Ibrahim, S.A.  
+                <em>“Chrysin-loaded PLGA nanoparticles alleviate the implantation of endometriotic lesions via attenuation of peritoneal inflammation and downregulating NF-κB activation-driven expression of angiogenic factors.”</em>
+                Journal of Drug Delivery Science and Technology 109: 106984, 2025.
+                <a href="https://doi.org/10.1016/J.JDDST.2025.106984" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">DOI</a>
               </li>
               <li>
-                Hassanein, H.H., <strong>WalyEldeen, A.A.</strong>, Sayed, R.M.S., Taha, A.A.A., Ibrahim, S.A.A., and
-                Hassan, H.  
-                <em>“Glypican3 and serglycin as potential biomarkers involved in the pathogenesis of ovarian
-                endometriosis.”</em> Tissue and Cell 95: 102867, 2025.
+                Hassanein, H.H., <strong>WalyEldeen, A.A.</strong>, Sayed, R.M.S., Taha, A.A.A., Ibrahim, S.A., and Hassan, H.  
+                <em>“Glypican3 and serglycin as potential biomarkers involved in the pathogenesis of ovarian endometriosis.”</em>
+                Tissue and Cell 95: 102867, 2025.
+                <a href="https://doi.org/10.1016/J.TICE.2025.102867" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">DOI</a>
               </li>
               <li>
                 Mahmoud, M., <strong>WalyEldeen, A.A.</strong>, Samie, M.A., Sadek, A.M., Elakhras, S., Samir, M.,
-                Ahmed, O., Sayed, R.M.S., Baiomy, A.A.A., and Ibrahim, S.A.A.  
+                Ahmed, O., Sayed, R.M.S., Baiomy, A.A., Ibrahim, S.A., and Hassan, H.  
                 <em>“Overexpression of miR-21-5p as a potential pathogenesis marker for ovarian endometriosis.”</em>
                 The Journal of Basic and Applied Zoology 86(1): 1, 2025.
+                <a href="https://doi.org/10.1186/S41936-024-00414-5" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">DOI</a>
               </li>
             </ul>
           </div>
@@ -635,9 +920,9 @@
             <ul class="space-y-3">
               <li>
                 <strong>WalyEldeen, A.A.</strong>, Sabet, S., Anis, S.E., Stein, T., and Ibrahim, A.M.  
-                <em>“FBLN2 is associated with basal cell markers Krt14 and ITGB1 in mouse mammary epithelial cells and
-                has a preferential expression in molecular subtypes of human breast cancer.”</em> Breast Cancer Research
-                and Treatment 208(3): 673–686, 2024.
+                <em>“FBLN2 is associated with basal cell markers Krt14 and ITGB1 in mouse mammary epithelial cells and has a preferential expression in molecular subtypes of human breast cancer.”</em>
+                Breast Cancer Research and Treatment 208(3): 673–686, 2024.
+                <a href="https://doi.org/10.1007/S10549-024-07447-Y" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">DOI</a>
               </li>
             </ul>
           </div>
@@ -655,16 +940,16 @@
           <div class="year-body px-5 pb-4">
             <ul class="space-y-3">
               <li>
-                <strong>WalyEldeen, A.A.</strong>, Sabet, S., EL-SHORBAGY, H.A.I.D.A.N.M., Abdelhamid, I.A., and
-                Ibrahim, S.A.A.  
-                <em>“Chalcones: Promising therapeutic agents targeting key players and signaling pathways regulating the
-                hallmarks of cancer.”</em> Chemico-Biological Interactions 369: 110297, 2023.
+                <strong>WalyEldeen, A.A.</strong>, Sabet, S., El-Shorbagy, H.M., Abdelhamid, I.A., and Ibrahim, S.A.  
+                <em>“Chalcones: Promising therapeutic agents targeting key players and signaling pathways regulating the hallmarks of cancer.”</em>
+                Chemico-Biological Interactions 369: 110297, 2023.
+                <a href="https://doi.org/10.1016/J.CBI.2022.110297" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">DOI</a>
               </li>
               <li>
-                Emad, B., <strong>WalyEldeen, A.A.</strong>, Hassan, H., Sharaky, M., Abdelhamid, I.A., Ibrahim,
-                S.A.A., and Mohamed, H.R.H.  
-                <em>“Yttrium Oxide nanoparticles induce cytotoxicity, genotoxicity, apoptosis, and ferroptosis in the
-                human triple-negative breast cancer MDA-MB-231 cells.”</em> BMC Cancer 23(1): 1151, 2023.
+                Emad, B., <strong>WalyEldeen, A.A.</strong>, Hassan, H., Sharaky, M., Abdelhamid, I.A., Ibrahim, S.A., and Mohamed, H.R.  
+                <em>“Yttrium Oxide nanoparticles induce cytotoxicity, genotoxicity, apoptosis, and ferroptosis in the human triple-negative breast cancer MDA-MB-231 cells.”</em>
+                BMC Cancer 23(1): 1151, 2023.
+                <a href="https://doi.org/10.1186/S12885-023-11649-W" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">DOI</a>
               </li>
             </ul>
           </div>
@@ -682,16 +967,15 @@
           <div class="year-body px-5 pb-4">
             <ul class="space-y-3">
               <li>
-                <strong>WalyEldeen, A.A.</strong>, EL-SHORBAGY, H.A.I.D.A.N.M., Hassaneen, H.M., Abdelhamid, I.A.,
-                Sabet, S., and Ibrahim, S.A.A.  
-                <em>“[1,2,4] Triazolo [3,4-a]isoquinoline chalcone derivative exhibits anticancer activity via induction
-                of oxidative stress, DNA damage, and apoptosis in Ehrlich solid carcinoma-bearing mice.”</em>
-                Naunyn-Schmiedeberg's Archives of Pharmacology 395(10): 1225–1238, 2022.
+                <strong>WalyEldeen, A.A.</strong>, El-Shorbagy, H.M., Hassaneen, H.M., Abdelhamid, I.A., Sabet, S., and Ibrahim, S.A.  
+                <em>“[1,2,4] Triazolo [3,4-a]isoquinoline chalcone derivative exhibits anticancer activity via induction of oxidative stress, DNA damage, and apoptosis in Ehrlich solid carcinoma-bearing mice.”</em>
+                Naunyn-Schmiedeberg’s Archives of Pharmacology 395(10): 1225–1238, 2022.
+                <a href="https://doi.org/10.1007/S00210-022-02269-5" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">DOI</a>
               </li>
               <li>
                 Alghamdi, A.A.A., <strong>WalyEldeen, A.</strong>, and Ibrahim, S.  
-                <em>“Nanoparticles as a Therapeutic Approach for Tumor Angiogenesis.”</em> In: Innovative Approaches for
-                Nanobiotechnology in Healthcare Systems, IGI Global, 2022.
+                <em>“Nanoparticles as a Therapeutic Approach for Tumor Angiogenesis.”</em>
+                In: <em>Innovative Approaches for Nanobiotechnology in Healthcare Systems</em>, IGI Global, 2022.
               </li>
             </ul>
           </div>
@@ -705,34 +989,65 @@
 
       <div class="grid md:grid-cols-2 gap-6 text-sm">
         <div class="card card-hover rounded-2xl p-5">
-          <h3 class="text-lg font-semibold mb-3">Recent (2020–2025)</h3>
+          <h3 class="text-lg font-semibold mb-3">Recent Training (2023–2026)</h3>
           <ul class="space-y-2 list-disc list-inside">
-            <li>2025 – Training course on applications of artificial intelligence, FLDC, Cairo University.</li>
-            <li>2025 – Computational Biophysics Workshop, Faculty of Science, Cairo University.</li>
-            <li>2025 – Pathology Insights Conferences 2025.</li>
-            <li>2025 – International conference of the Society of Endometriosis in Egypt.</li>
+            <li>2026 – Metagenomics, Microbiome &amp; 16S rRNA sequencing workshop, Colors Educational Hub, Cairo, Egypt.</li>
+            <li>2026 – Introduction to single-cell genomics workshop, EG-CompBio, Faculty of Science, Cairo University.</li>
+            <li>2025 – How to Create Graphical Abstracts That Boost the Impact of Medical Research, online event by Editage.</li>
+            <li>2025 – Applications of artificial intelligence training course, Faculty and Leadership Development Centre, Cairo University.</li>
+            <li>2025 – Computational Biophysics Workshop, Department of Biophysics, Faculty of Science, Cairo University, 3–21 August 2025.</li>
             <li>2024 – Metabolomics Day, 57357 Children’s Hospital.</li>
-            <li>2024 – Effective Presentation Skills course, FLDC, Cairo University.</li>
-            <li>2023 – Biostatistics workshop in ART, Egyptian Society of Embryology and ART.</li>
-            <li>2022 – Workshop on genetic testing in ART, ESEART.</li>
-            <li>2021 – Andrology lab workshop in ART, ESEART.</li>
+            <li>2024 – Effective Presentation Skills course, Faculty and Leadership Development Centre, Cairo University.</li>
+            <li>2023 – Biostatistics workshop in Assisted Reproduction Technologies, Egyptian Society of Embryology and Assisted Reproduction Technologies.</li>
           </ul>
         </div>
 
         <div class="card card-hover rounded-2xl p-5">
-          <h3 class="text-lg font-semibold mb-3">Earlier Experience</h3>
+          <h3 class="text-lg font-semibold mb-3">Earlier Training (2019–2022)</h3>
           <ul class="space-y-2 list-disc list-inside">
-            <li>2020 – Online seminar “Targeting metastatic breast cancer”, Johns Hopkins University.</li>
-            <li>2020 – Training in using technology in education, FLDC, Cairo University.</li>
-            <li>2020 – Training course in international publishing of scientific papers, FLDC, Cairo University.</li>
-            <li>2019 – International winter and summer schools on bioinformatics, Nile University &amp; Rostock University.</li>
-            <li>2019 – Biostatistics program (8 levels), Egyptian Association for Animal Research Advancement.</li>
-            <li>2019 – Laboratory animal handling and techniques workshop (FELASA-based), EAARA &amp; Utrecht University.</li>
-            <li>2019 – Symposium “How to write a successful animal care protocol”, Cairo University.</li>
-            <li>2019 – Critical thinking course, FLDC, Cairo University.</li>
-            <li>2019 – Internship, Aswan Heart Center, Life Science Department.</li>
-            <li>2014 – Participant in “Next Generation Cancer Research and Diagnosis” conference.</li>
+            <li>2022 – Workshop on the role of genetic testing in Assisted Reproduction Technologies, ESEART.</li>
+            <li>2021 – Workshop on the role of the andrology laboratory in Assisted Reproduction Technologies, ESEART.</li>
+            <li>2020 – Online seminar “Targeting metastatic breast cancer” by Denis Wirtz, Johns Hopkins University.</li>
+            <li>2020 – Using technology in education course, Faculty and Leadership Development Centre, Cairo University.</li>
+            <li>2020 – International publishing of scientific papers course, Faculty and Leadership Development Centre, Cairo University.</li>
+            <li>2019 – International winter school on bioinformatics, Nile University in collaboration with Rostock University.</li>
+            <li>2019 – International summer school on bioinformatics, Nile University in collaboration with Rostock University.</li>
+            <li>2019 – Biostatistics program, 8 levels, Egyptian Association for Animal Research Advancement, Faculty of Science, Cairo University.</li>
+            <li>2019 – Husbandry, handling, and basic techniques in laboratory animals workshop based on FELASA criteria, EAARA in collaboration with Utrecht University.</li>
+            <li>2019 – Symposium “How to write a successful animal care protocol”, Faculty of Science, Cairo University.</li>
+            <li>2019 – Critical thinking course, Faculty and Leadership Development Centre, Cairo University.</li>
+            <li>2019 – Internship program at Aswan Heart Center, Magdi Yacoub Foundation, Life Science Department.</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFERENCE PARTICIPATION -->
+    <section id="conferences" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
+      <h2 class="text-3xl font-semibold mb-6">Conference Participation</h2>
+      <div class="space-y-4 text-sm">
+        <div class="card card-hover rounded-2xl p-5">
+          <h3 class="text-lg font-semibold">Science at the Core of Innovation</h3>
+          <p class="text-muted-text dark:text-gray-400">Cairo, Egypt · 7–8 April 2026</p>
+          <p class="mt-2"><strong>Poster:</strong> Plasma Small-Extracellular Vesicle Proteomic Signature in Neoadjuvant Chemotherapy-Naïve Obese Breast Cancer Patients.</p>
+          <p><strong>Award:</strong> Winner of 2nd Place for Best Research Idea.</p>
+        </div>
+        <div class="card card-hover rounded-2xl p-5">
+          <h3 class="text-lg font-semibold">ASTRO 2025: 67th Annual Meeting</h3>
+          <p class="text-muted-text dark:text-gray-400">2025</p>
+          <p class="mt-2"><strong>Abstract:</strong> Knockdown and Inhibition of RNA-Binding Proteins Musashi-1 and Musashi-2 Modulate DNA Repair and Radiosensitize Triple-Negative Breast Cancer.</p>
+        </div>
+        <div class="card card-hover rounded-2xl p-5">
+          <h3 class="text-lg font-semibold">Pathology Insights Conference</h3>
+          <p class="text-muted-text dark:text-gray-400">Cairo, Egypt · 9 July 2025 · Attendee</p>
+        </div>
+        <div class="card card-hover rounded-2xl p-5">
+          <h3 class="text-lg font-semibold">International Conference of the Society of Endometriosis in Egypt — Endo Egypt</h3>
+          <p class="text-muted-text dark:text-gray-400">Cairo, Egypt · 22 February 2025 · Attendee</p>
+        </div>
+        <div class="card card-hover rounded-2xl p-5">
+          <h3 class="text-lg font-semibold">First Annual “Next Generation Cancer Research and Diagnosis” Conference</h3>
+          <p class="text-muted-text dark:text-gray-400">Cairo, Egypt · 2014 · Attendee</p>
         </div>
       </div>
     </section>
@@ -742,8 +1057,10 @@
       <h2 class="text-3xl font-semibold mb-6">Organization &amp; Outreach Experience</h2>
       <ul class="space-y-3 text-sm">
         <li class="card card-hover rounded-2xl p-4">
-          <strong>2022:</strong> Presenter &amp; organizer – “Hands-on basic and advanced cell culture techniques”
-          workshop, Egyptian Society of Embryology and Assisted Reproduction Technologies.
+          <strong>2026:</strong> Organizer – Zoology Department Student Activities Exhibition, Faculty of Science, Cairo University, 9 February 2026.
+        </li>
+        <li class="card card-hover rounded-2xl p-4">
+          <strong>2022:</strong> Presenter &amp; organizer – “Hands-on basic and advanced cell culture techniques” workshop, Egyptian Society of Embryology and Assisted Reproduction Technologies.
         </li>
         <li class="card card-hover rounded-2xl p-4">
           <strong>2020:</strong> Presenter – Online workshop “Introduction to Bioinformatics Tools”.
@@ -752,9 +1069,24 @@
           <strong>2019:</strong> Organizer – Workshop “Sustainable development, scientific research, and labor market”, Faculty of Science, Cairo University.
         </li>
         <li class="card card-hover rounded-2xl p-4">
-          <strong>2018:</strong> Organizer – Workshop “Requirements of work and different aspects for working for graduates of Zoology Department”.
+          <strong>2018:</strong> Organizer – Workshop “Requirements of Works and different aspects for working for graduates of Zoology Department”.
         </li>
       </ul>
+    </section>
+
+    <!-- MEMBERSHIPS & SERVICE -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
+      <h2 class="text-3xl font-semibold mb-6">Memberships &amp; Academic Service</h2>
+      <div class="grid md:grid-cols-2 gap-6 text-sm">
+        <div class="card card-hover rounded-2xl p-5">
+          <h3 class="text-lg font-semibold mb-2">Society Membership</h3>
+          <p>Member, Egyptian Society of Embryology and Assisted Reproduction Technologies.</p>
+        </div>
+        <div class="card card-hover rounded-2xl p-5">
+          <h3 class="text-lg font-semibold mb-2">Leadership &amp; Academic Service</h3>
+          <p>Committee Rapporteur, Student Activity Committee, Zoology Department, Faculty of Science, Cairo University.</p>
+        </div>
+      </div>
     </section>
 
     <!-- TEACHING EXPERIENCE -->
@@ -789,7 +1121,7 @@
         <div class="card card-hover rounded-2xl p-5">
           <h3 class="text-lg font-semibold mb-3">Laboratory Skills</h3>
           <ul class="space-y-1 list-disc list-inside">
-            <li>DNA &amp; RNA extraction (tissue and blood)</li>
+            <li>DNA &amp; RNA extraction from tissue and blood</li>
             <li>PCR and Real-Time PCR</li>
             <li>Cell culture and sub-culturing of cell lines</li>
             <li>miRNA extraction</li>
@@ -798,6 +1130,8 @@
             <li>Comet assay</li>
             <li>Animal handling</li>
             <li>ELISA</li>
+            <li>3D organoid culture and maintenance</li>
+            <li>Flow cytometry</li>
           </ul>
         </div>
         <div class="card card-hover rounded-2xl p-5">
@@ -818,8 +1152,8 @@
           </ul>
           <h3 class="text-lg font-semibold mt-4 mb-2">Interests &amp; Hobbies</h3>
           <p>
-            Photography – participant in multiple galleries at Sakia El Sawy and Cairo University competitions,
-            and recipient of an appreciation award.
+            Photography – participant in the second, third, and fourth annual photography galleries at Sakia Elsawy,
+            participant in the second Cairo University street photography competition, and winner of an appreciation award.
           </p>
         </div>
       </div>
@@ -827,20 +1161,40 @@
 
     <!-- THESIS -->
     <section id="thesis" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
-      <h2 class="text-3xl font-semibold mb-6">Master’s Thesis</h2>
-      <div class="card card-hover rounded-2xl p-5 text-sm">
-        <h3 class="text-lg font-semibold mb-2">
-          Evaluation of the Potential Anticancer Effect of a Novel Chalcone Derivative in Ehrlich Solid
-          Carcinoma-Bearing Mice
-        </h3>
-        <p class="text-muted-text dark:text-gray-400 mb-2">
-          Department of Zoology, Faculty of Science, Cairo University.
-        </p>
-        <p class="mb-2">
-          <strong>Examiners:</strong><br />
-          • Prof. Dr. Burkhard Greve, Department of Radiotherapy–Radio Oncology, University Hospital Münster<br />
-          • Prof. Dr. Ahmed Said Alazzouni, Department of Histology and Histochemistry, Faculty of Science, Helwan University
-        </p>
+      <h2 class="text-3xl font-semibold mb-6">Thesis Work</h2>
+      <div class="space-y-6 text-sm">
+        <div class="card card-hover rounded-2xl p-5">
+          <h3 class="text-lg font-semibold mb-2">Ph.D. Thesis</h3>
+          <p class="font-medium">Proteomic Profiling of Circulating Exosomes in Breast Cancer Patients.</p>
+          <p class="text-muted-text dark:text-gray-400 mt-2">
+            <strong>Supervisors:</strong> Prof. Dr. Sherif Abdelaziz Ibrahim, Professor of Cancer Cell Biology, Zoology Department, Faculty of Science, Cairo University; Dr. Ghada Mohamed Abdel-Salam, Associate Professor of Pathology, National Cancer Institute, Cairo University; Dr. Sherif Nasser Mohamed Taha, Lecturer of Surgical Oncology, National Cancer Institute, Cairo University.
+          </p>
+        </div>
+
+        <div class="card card-hover rounded-2xl p-5">
+          <h3 class="text-lg font-semibold mb-2">Master’s Thesis</h3>
+          <p class="font-medium">
+            Evaluation of the Potential Anticancer Effect of a Novel Chalcone Derivative in Ehrlich Solid Carcinoma-Bearing Mice.
+          </p>
+          <p class="text-muted-text dark:text-gray-400 mt-2">
+            Department of Zoology, Faculty of Science, Cairo University.
+          </p>
+          <p class="mt-2">
+            <strong>Supervisors:</strong> Prof. Dr. Sherif Abdelaziz Ibrahim, Prof. Dr. Salwa Sabet, and Prof. Dr. Haidan Mosatafa.
+          </p>
+          <p class="mt-2">
+            <strong>Examiners:</strong><br />
+            • Prof. Dr. Burkhard Greve, Department of Radiotherapy–Radio Oncology, University Hospital Münster<br />
+            • Prof. Dr. Ahmed Said Alazzouni, Department of Histology and Histochemistry, Faculty of Science, Helwan University
+          </p>
+          <div class="mt-4">
+            <p class="font-semibold">Thesis Publications</p>
+            <ul class="space-y-2 list-disc list-inside mt-2">
+              <li>WalyEldeen, A.A., El-Shorbagy, H.M., Hassaneen, H.M., Abdelhamid, I.A., Sabet, S., and Ibrahim, S.A. (2022). [1,2,4] Triazolo [3,4-a]isoquinoline chalcone derivative exhibits anticancer activity via induction of oxidative stress, DNA damage, and apoptosis in Ehrlich solid carcinoma-bearing mice. <em>Naunyn-Schmiedeberg’s Archives of Pharmacology</em>, 395(10), 1225–1238.</li>
+              <li>WalyEldeen, A.A., Sabet, S., El-Shorbagy, H.M., Abdelhamid, I.A., and Ibrahim, S.A. (2023). Chalcones: Promising therapeutic agents targeting key players and signaling pathways regulating the hallmarks of cancer. <em>Chemico-Biological Interactions</em>, 369, 110297.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -852,31 +1206,36 @@
           <h3 class="text-lg font-semibold mb-3">Contact</h3>
           <p><strong>Affiliation:</strong><br />Cellular &amp; Molecular Biosciences Research Lab,<br />Department of Zoology, Faculty of Science,<br />Cairo University, 12613 Giza, Egypt.</p>
           <p class="mt-3">
+            <strong>Phone:</strong><br />
+            <a href="tel:+201091414517" class="text-brand-primary dark:text-sky-300 hover:underline">+20 109 141 4517</a>
+          </p>
+          <p class="mt-3">
             <strong>Email:</strong><br />
             <a href="mailto:awalyeldeen@sci.cu.edu.eg" class="text-brand-primary dark:text-sky-300 hover:underline">awalyeldeen@sci.cu.edu.eg</a><br />
             <a href="mailto:amr.waly.eldeen@gmail.com" class="text-brand-primary dark:text-sky-300 hover:underline">amr.waly.eldeen@gmail.com</a>
+          </p>
+          <p class="mt-3">
+            <strong>Website:</strong><br />
+            <a href="https://amrwalyeldeen.github.io/" target="_blank" rel="noopener" class="text-brand-primary dark:text-sky-300 hover:underline">amrwalyeldeen.github.io</a>
           </p>
         </div>
 
         <div class="card card-hover rounded-2xl p-5">
           <h3 class="text-lg font-semibold mb-3">Academic References</h3>
           <p class="mb-3">
-            <strong>Prof. Dr. Sherif Abdelaziz Ibrahim</strong><br />
+            <strong>Prof. Dr. Sherif Ibrahim</strong><br />
             Zoology Department, Faculty of Science, Cairo University<br />
-            Email: <a href="mailto:isherif@sci.cu.edu.eg" class="text-brand-primary dark:text-sky-300 hover:underline">isherif@sci.cu.edu.eg</a>
+            Email: <a href="mailto:isherif@cu.edu.eg" class="text-brand-primary dark:text-sky-300 hover:underline">isherif@cu.edu.eg</a>
           </p>
           <p class="mb-3">
             <strong>Prof. Dr. Salwa Farouk Sabet</strong><br />
             Zoology Department, Faculty of Science, Cairo University<br />
-            Email:
-            <a href="mailto:salwasabet@gmail.com" class="text-brand-primary dark:text-sky-300 hover:underline">salwasabet@gmail.com</a>,
-            <a href="mailto:salwasabet@cu.edu.eg" class="text-brand-primary dark:text-sky-300 hover:underline">salwasabet@cu.edu.eg</a>
+            Email: <a href="mailto:salwasabet@cu.edu.eg" class="text-brand-primary dark:text-sky-300 hover:underline">salwasabet@cu.edu.eg</a>
           </p>
           <p>
             <strong>Associate Professor Dr. Ayman Maher Ibrahim</strong><br />
             Zoology Department, Faculty of Science, Cairo University<br />
-            Email:
-            <a href="mailto:sci_ayman@cu.edu.eg" class="text-brand-primary dark:text-sky-300 hover:underline">sci_ayman@cu.edu.eg</a>
+            Email: <a href="mailto:sci_ayman@cu.edu.eg" class="text-brand-primary dark:text-sky-300 hover:underline">sci_ayman@cu.edu.eg</a>
           </p>
         </div>
       </div>
@@ -945,7 +1304,7 @@
       });
     });
     // Open newest year by default
-    const newest = document.querySelector('.year-block[data-year="2025"]');
+    const newest = document.querySelector('.year-block[data-year="2026"]');
     if (newest) newest.classList.add('open');
 
     // Publications: sort by year (asc/desc)
@@ -1139,3 +1498,6 @@
   </script>
 </body>
 </html>
+
+
+
