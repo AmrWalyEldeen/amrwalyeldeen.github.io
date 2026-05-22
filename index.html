@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amr Ahmed WalyEldeen | Academic Portfolio</title>
 
+  <meta name="description" content="Academic portfolio of Amr Ahmed WalyEldeen, Assistant Lecturer and researcher in cancer cell biology, molecular oncology, extracellular vesicle biology, breast cancer liquid biopsy, proteomics, and bioinformatics at Cairo University." />
+  <meta name="author" content="Amr Ahmed WalyEldeen" />
+  <meta name="keywords" content="Amr Ahmed WalyEldeen, Cairo University, cancer biology, extracellular vesicles, exosomes, breast cancer, liquid biopsy, proteomics, molecular oncology, bioinformatics, histology, genetics" />
+  <meta name="theme-color" content="#0f766e" />
+  <link rel="canonical" href="https://amrwalyeldeen.github.io/" />
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="%230f766e"/><text x="50" y="60" text-anchor="middle" font-family="Georgia,serif" font-size="38" font-weight="700" fill="white">AAW</text></svg>' />
+  <meta property="og:title" content="Amr Ahmed WalyEldeen | Academic Portfolio" />
+  <meta property="og:description" content="Cancer cell biology, extracellular vesicles, breast cancer liquid biopsy, proteomics, and molecular oncology research portfolio." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://amrwalyeldeen.github.io/" />
+  <meta property="og:image" content="https://amrwalyeldeen.github.io/amr.jpg.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Amr Ahmed WalyEldeen | Academic Portfolio" />
+  <meta name="twitter:description" content="Academic researcher profile in cancer biology, extracellular vesicles, proteomics, and breast cancer liquid biopsy." />
+  <meta name="twitter:image" content="https://amrwalyeldeen.github.io/amr.jpg.jpg" />
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -731,7 +747,284 @@
       }
     }
 
+
+
+    /* =========================
+       ADVANCED INTERACTION & CV POLISH
+       ========================= */
+    .visually-soft {
+      color: var(--text-muted);
+    }
+
+    .highlight-card,
+    .research-node,
+    .timeline-item,
+    .conference-card,
+    .service-card {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .highlight-card::before,
+    .research-node::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(135deg, rgba(20, 184, 166, 0.12), transparent 45%, rgba(245, 158, 11, 0.10));
+      opacity: 0;
+      transition: opacity 0.22s ease;
+    }
+
+    .highlight-card:hover::before,
+    .research-node:hover::before {
+      opacity: 1;
+    }
+
+    .highlight-badge,
+    .status-badge,
+    .year-badge {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      gap: 0.35rem;
+      border-radius: 999px;
+      padding: 0.25rem 0.65rem;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      border: 1px solid rgba(20, 184, 166, 0.22);
+      background: rgba(20, 184, 166, 0.10);
+      color: var(--accent-cool);
+    }
+
+    .status-badge.gold,
+    .highlight-badge.gold {
+      border-color: rgba(245, 158, 11, 0.28);
+      background: rgba(245, 158, 11, 0.12);
+      color: var(--accent-warm);
+    }
+
+    .research-map {
+      position: relative;
+    }
+
+    .research-map::before {
+      content: "";
+      position: absolute;
+      inset: 2rem;
+      border: 1px dashed rgba(15, 118, 110, 0.22);
+      border-radius: 2rem;
+      pointer-events: none;
+    }
+
+    .research-node {
+      min-height: 10.5rem;
+    }
+
+    .research-node .node-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      display: grid;
+      place-items: center;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(20, 184, 166, 0.16), rgba(245, 158, 11, 0.14));
+      border: 1px solid rgba(20, 184, 166, 0.20);
+      font-size: 1.2rem;
+    }
+
+    .timeline {
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 1.15rem;
+      top: 0.8rem;
+      bottom: 0.8rem;
+      width: 2px;
+      background: linear-gradient(180deg, #14b8a6, #f59e0b);
+      opacity: 0.5;
+    }
+
+    .timeline-item {
+      padding-left: 3.4rem !important;
+    }
+
+    .timeline-item::before {
+      content: attr(data-year);
+      position: absolute;
+      left: 0;
+      top: 1.15rem;
+      min-width: 2.45rem;
+      height: 2.45rem;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #0f766e, #14b8a6);
+      color: #fff;
+      font-size: 0.63rem;
+      font-weight: 900;
+      box-shadow: 0 12px 28px rgba(15, 118, 110, 0.26);
+      z-index: 2;
+    }
+
+    .pub-tools {
+      background: rgba(255, 255, 255, 0.56);
+      border: 1px solid rgba(15, 118, 110, 0.16);
+      border-radius: 1.25rem;
+      padding: 0.85rem;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+      backdrop-filter: blur(12px);
+    }
+
+    html.dark .pub-tools {
+      background: rgba(15, 23, 42, 0.56);
+      border-color: rgba(45, 212, 191, 0.16);
+    }
+
+    .pub-input,
+    .pub-select {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 118, 110, 0.22);
+      background: rgba(255, 255, 255, 0.86);
+      padding: 0.62rem 0.95rem;
+      outline: none;
+      transition: box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    html.dark .pub-input,
+    html.dark .pub-select {
+      background: rgba(15, 23, 42, 0.86);
+      border-color: rgba(45, 212, 191, 0.22);
+      color: #e5e7eb;
+    }
+
+    .pub-input:focus,
+    .pub-select:focus {
+      border-color: rgba(20, 184, 166, 0.65);
+      box-shadow: 0 0 0 4px var(--ring-soft);
+    }
+
+    .print-button {
+      cursor: pointer;
+    }
+
+    .metric-number {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .conference-card {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .conference-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      border-radius: 1.25rem 0 0 1.25rem;
+      background: linear-gradient(180deg, #0f766e, #f59e0b);
+    }
+
+    .profile-link-grid a {
+      justify-content: center;
+    }
+
+    @media print {
+      html, body {
+        background: #ffffff !important;
+        color: #111827 !important;
+      }
+
+      body::before,
+      body::after,
+      .ambient-layer,
+      header,
+      #progress-bar,
+      #back-to-top,
+      #quotes,
+      .print-button,
+      #theme-toggle,
+      #mobile-menu,
+      #mobile-menu-overlay {
+        display: none !important;
+      }
+
+      main {
+        padding-top: 0 !important;
+      }
+
+      section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        padding-top: 1.1rem !important;
+        padding-bottom: 1.1rem !important;
+      }
+
+      .card,
+      .year-body li {
+        box-shadow: none !important;
+        background: #ffffff !important;
+        border-color: #d1d5db !important;
+      }
+
+      .year-body {
+        max-height: none !important;
+        overflow: visible !important;
+      }
+
+      .year-block {
+        break-inside: avoid;
+      }
+
+      a {
+        color: #0f766e !important;
+        text-decoration: none !important;
+      }
+    }
+
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Amr Ahmed WalyEldeen",
+    "alternateName": "Amr A. WalyEldeen",
+    "jobTitle": "Assistant Lecturer of Cell Biology, Histology and Genetics",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Cairo University",
+      "department": "Department of Zoology, Faculty of Science"
+    },
+    "url": "https://amrwalyeldeen.github.io/",
+    "image": "https://amrwalyeldeen.github.io/amr.jpg.jpg",
+    "email": ["mailto:awalyeldeen@sci.cu.edu.eg", "mailto:amr.waly.eldeen@gmail.com"],
+    "nationality": "Egyptian",
+    "knowsAbout": [
+      "Cancer Cell Biology",
+      "Molecular Oncology",
+      "Extracellular Vesicles",
+      "Breast Cancer Liquid Biopsy",
+      "Proteomics",
+      "Bioinformatics",
+      "Histology",
+      "Genetics"
+    ],
+    "sameAs": [
+      "https://scholar.cu.edu.eg/?q=waly/",
+      "https://scholar.google.com.eg/citations?hl=en&authuser=5&user=RGY0j08AAAAJ",
+      "https://www.scopus.com/authid/detail.uri?authorId=57815650300",
+      "https://orcid.org/0000-0002-2056-7288",
+      "https://www.linkedin.com/in/amrwalyeldeen/"
+    ]
+  }
+  </script>
+
 </head>
 
 <body>
@@ -741,7 +1034,7 @@
 
   <!-- NAVBAR -->
   <header class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/90 backdrop-blur shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
       <!-- Brand -->
       <a href="#home" class="font-serif text-xl md:text-2xl font-semibold text-brand-primary dark:text-sky-300">
         Amr Ahmed WalyEldeen
@@ -749,15 +1042,16 @@
 
       <div class="flex items-center gap-3">
         <!-- Desktop nav -->
-        <nav class="hidden md:flex gap-3 text-xs lg:text-sm font-medium text-muted-text dark:text-gray-300">
+        <nav class="hidden lg:flex flex-wrap justify-end gap-1.5 text-[0.72rem] xl:text-sm font-medium text-muted-text dark:text-gray-300">
+          <a href="#highlights" class="hover:text-brand-primary dark:hover:text-sky-300">Highlights</a>
+          <a href="#research-focus" class="hover:text-brand-primary dark:hover:text-sky-300">Research</a>
           <a href="#about" class="hover:text-brand-primary dark:hover:text-sky-300">About</a>
           <a href="#education" class="hover:text-brand-primary dark:hover:text-sky-300">Education</a>
           <a href="#awards" class="hover:text-brand-primary dark:hover:text-sky-300">Awards</a>
-          <a href="#experience" class="hover:text-brand-primary dark:hover:text-sky-300">Experience</a>
           <a href="#projects" class="hover:text-brand-primary dark:hover:text-sky-300">Projects</a>
           <a href="#publications" class="hover:text-brand-primary dark:hover:text-sky-300">Publications</a>
           <a href="#training" class="hover:text-brand-primary dark:hover:text-sky-300">Training</a>
-          <a href="#teaching" class="hover:text-brand-primary dark:hover:text-sky-300">Teaching</a>
+          <a href="#conferences" class="hover:text-brand-primary dark:hover:text-sky-300">Conferences</a>
           <a href="#skills" class="hover:text-brand-primary dark:hover:text-sky-300">Skills</a>
           <a href="#thesis" class="hover:text-brand-primary dark:hover:text-sky-300">Thesis</a>
           <a href="#contact" class="hover:text-brand-primary dark:hover:text-sky-300">Contact</a>
@@ -783,7 +1077,7 @@
         <!-- Mobile hamburger -->
         <button
           id="mobile-menu-btn"
-          class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-full border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 bg-white/90 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700"
+          class="lg:hidden inline-flex items-center justify-center w-9 h-9 rounded-full border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 bg-white/90 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700"
           aria-label="Open navigation menu"
           aria-expanded="false"
         >
@@ -798,13 +1092,13 @@
   <!-- Mobile menu overlay -->
   <div
     id="mobile-menu-overlay"
-    class="fixed inset-0 bg-black/35 opacity-0 pointer-events-none transition-opacity duration-200 z-40 md:hidden"
+    class="fixed inset-0 bg-black/35 opacity-0 pointer-events-none transition-opacity duration-200 z-40 lg:hidden"
   ></div>
 
   <!-- Mobile slide-in menu -->
   <nav
     id="mobile-menu"
-    class="fixed inset-y-0 left-0 w-64 max-w-[80%] bg-white/95 dark:bg-slate-900/95 backdrop-blur shadow-2xl transform -translate-x-full transition-transform duration-200 z-50 md:hidden flex flex-col"
+    class="fixed inset-y-0 left-0 w-64 max-w-[80%] bg-white/95 dark:bg-slate-900/95 backdrop-blur shadow-2xl transform -translate-x-full transition-transform duration-200 z-50 lg:hidden flex flex-col"
     aria-label="Mobile navigation"
   >
     <div class="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-slate-700">
@@ -822,6 +1116,8 @@
     <div class="flex-1 overflow-y-auto">
       <ul class="px-4 py-3 space-y-2 text-sm font-medium text-slate-800 dark:text-slate-100">
         <li><a href="#home" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Home</a></li>
+        <li><a href="#highlights" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Recent Highlights</a></li>
+        <li><a href="#research-focus" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Research Focus</a></li>
         <li><a href="#about" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">About</a></li>
         <li><a href="#education" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Education</a></li>
         <li><a href="#awards" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Awards</a></li>
@@ -829,6 +1125,9 @@
         <li><a href="#projects" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Projects</a></li>
         <li><a href="#publications" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Publications</a></li>
         <li><a href="#training" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Training</a></li>
+        <li><a href="#conferences" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Conferences</a></li>
+        <li><a href="#organization" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Organization</a></li>
+        <li><a href="#service" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Service</a></li>
         <li><a href="#teaching" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Teaching</a></li>
         <li><a href="#skills" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Skills</a></li>
         <li><a href="#thesis" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Thesis</a></li>
@@ -883,6 +1182,9 @@
               download>
             Download CV
           </a>
+          <button id="print-cv" type="button" class="print-button btn-premium btn-outline-premium inline-flex items-center px-5 py-2.5 rounded-full border border-slate-300 dark:border-slate-600 text-sm font-semibold bg-white/80 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800">
+            Print / Save PDF
+          </button>
         </div>
       </div>
       <div class="flex justify-center">
@@ -907,16 +1209,101 @@
           <div class="text-xs uppercase tracking-wide text-muted-text dark:text-gray-400 mt-1">Courses completed, 2023</div>
         </div>
         <div class="card card-hover rounded-2xl p-4 text-center">
-          <div class="text-2xl font-bold text-brand-primary dark:text-sky-300">15</div>
+          <div class="text-2xl font-bold text-brand-primary dark:text-sky-300"><span class="metric-number count-up" data-target="15">0</span></div>
           <div class="text-xs uppercase tracking-wide text-muted-text dark:text-gray-400 mt-1">Listed publications</div>
         </div>
         <div class="card card-hover rounded-2xl p-4 text-center">
-          <div class="text-2xl font-bold text-brand-primary dark:text-sky-300">7</div>
+          <div class="text-2xl font-bold text-brand-primary dark:text-sky-300"><span class="metric-number count-up" data-target="7">0</span></div>
           <div class="text-xs uppercase tracking-wide text-muted-text dark:text-gray-400 mt-1">Awards &amp; distinctions</div>
         </div>
         <div class="card card-hover rounded-2xl p-4 text-center">
-          <div class="text-2xl font-bold text-brand-primary dark:text-sky-300">2</div>
+          <div class="text-2xl font-bold text-brand-primary dark:text-sky-300"><span class="metric-number count-up" data-target="2">0</span></div>
           <div class="text-xs uppercase tracking-wide text-muted-text dark:text-gray-400 mt-1">Funded projects</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECENT HIGHLIGHTS -->
+    <section id="highlights" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-6">
+        <div>
+          <p class="text-xs uppercase tracking-[0.25em] text-brand-primary dark:text-sky-300 mb-2">Recently Updated</p>
+          <h2 class="section-title text-3xl font-semibold">Recent Highlights</h2>
+        </div>
+        <p class="text-sm text-muted-text dark:text-gray-400 max-w-2xl">
+          A compact view of the latest academic outputs, recognition, conference activity, and methodological development.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-5 text-sm">
+        <article class="highlight-card card card-hover rounded-2xl p-5">
+          <span class="highlight-badge">2026 Publication</span>
+          <h3 class="text-lg font-semibold mt-3 mb-2">PLOS ONE exosome proteomics paper</h3>
+          <p class="text-muted-text dark:text-gray-400">Plasma small-extracellular vesicles’ proteomic signature in neoadjuvant chemotherapy–naïve breast cancer patients.</p>
+        </article>
+        <article class="highlight-card card card-hover rounded-2xl p-5">
+          <span class="highlight-badge">2026 Publication</span>
+          <h3 class="text-lg font-semibold mt-3 mb-2">Cancers EV-derived marker study</h3>
+          <p class="text-muted-text dark:text-gray-400">Large extracellular vesicle-derived latent MMP-8 and active MMP-2 as circulating markers for lymph node metastasis.</p>
+        </article>
+        <article class="highlight-card card card-hover rounded-2xl p-5">
+          <span class="highlight-badge gold">2026 Award</span>
+          <h3 class="text-lg font-semibold mt-3 mb-2">2nd Place Best Research Idea</h3>
+          <p class="text-muted-text dark:text-gray-400">Science at the Core of Innovation, Cairo, for breast cancer small-extracellular vesicle proteomic research.</p>
+        </article>
+        <article class="highlight-card card card-hover rounded-2xl p-5">
+          <span class="highlight-badge">2026 Training</span>
+          <h3 class="text-lg font-semibold mt-3 mb-2">Genomics &amp; microbiome upskilling</h3>
+          <p class="text-muted-text dark:text-gray-400">Recent training in metagenomics, microbiome, 16S rRNA sequencing, and single-cell genomics.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESEARCH FOCUS MAP -->
+    <section id="research-focus" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
+      <div class="mb-6">
+        <p class="text-xs uppercase tracking-[0.25em] text-brand-primary dark:text-sky-300 mb-2">Scientific Identity</p>
+        <h2 class="section-title text-3xl font-semibold">Research Focus</h2>
+      </div>
+      <div class="research-map grid sm:grid-cols-2 lg:grid-cols-4 gap-5 text-sm">
+        <div class="research-node card card-hover rounded-2xl p-5">
+          <div class="node-icon">🧬</div>
+          <h3 class="text-lg font-semibold mt-4 mb-2">Cancer Cell Biology</h3>
+          <p class="text-muted-text dark:text-gray-400">Mechanisms of cancer progression, metastasis, and therapeutic resistance.</p>
+        </div>
+        <div class="research-node card card-hover rounded-2xl p-5">
+          <div class="node-icon">🫧</div>
+          <h3 class="text-lg font-semibold mt-4 mb-2">Extracellular Vesicles</h3>
+          <p class="text-muted-text dark:text-gray-400">Exosome and EV cargo biology for circulating biomarker discovery.</p>
+        </div>
+        <div class="research-node card card-hover rounded-2xl p-5">
+          <div class="node-icon">🎗️</div>
+          <h3 class="text-lg font-semibold mt-4 mb-2">Breast Cancer Liquid Biopsy</h3>
+          <p class="text-muted-text dark:text-gray-400">Non-invasive biomarker approaches for early detection and monitoring.</p>
+        </div>
+        <div class="research-node card card-hover rounded-2xl p-5">
+          <div class="node-icon">📊</div>
+          <h3 class="text-lg font-semibold mt-4 mb-2">Proteomics &amp; Bioinformatics</h3>
+          <p class="text-muted-text dark:text-gray-400">Proteomic profiling, metadata analysis, and computational interpretation.</p>
+        </div>
+        <div class="research-node card card-hover rounded-2xl p-5">
+          <div class="node-icon">🧪</div>
+          <h3 class="text-lg font-semibold mt-4 mb-2">Molecular Oncology</h3>
+          <p class="text-muted-text dark:text-gray-400">Molecular pathways regulating tumor behavior and treatment response.</p>
+        </div>
+        <div class="research-node card card-hover rounded-2xl p-5">
+          <div class="node-icon">🧫</div>
+          <h3 class="text-lg font-semibold mt-4 mb-2">Cell Models</h3>
+          <p class="text-muted-text dark:text-gray-400">Cell culture, 3D organoids, cytotoxicity, apoptosis, and flow cytometry workflows.</p>
+        </div>
+        <div class="research-node card card-hover rounded-2xl p-5">
+          <div class="node-icon">🌐</div>
+          <h3 class="text-lg font-semibold mt-4 mb-2">Tumor Microenvironment</h3>
+          <p class="text-muted-text dark:text-gray-400">EV-mediated communication and microenvironment-associated disease markers.</p>
+        </div>
+        <div class="research-node card card-hover rounded-2xl p-5">
+          <div class="node-icon">🔬</div>
+          <h3 class="text-lg font-semibold mt-4 mb-2">Histology &amp; Genetics</h3>
+          <p class="text-muted-text dark:text-gray-400">Integration of cellular, tissue, and genetic perspectives in biomedical research.</p>
         </div>
       </div>
     </section>
@@ -1023,35 +1410,41 @@
 
     <!-- AWARDS -->
     <section id="awards" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
-      <h2 class="section-title text-3xl font-semibold mb-6">Awards</h2>
-      <div class="grid md:grid-cols-2 gap-5 text-sm">
-        <div class="card card-hover rounded-2xl p-5">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-6">
+        <div>
+          <p class="text-xs uppercase tracking-[0.25em] text-brand-primary dark:text-sky-300 mb-2">Recognition</p>
+          <h2 class="section-title text-3xl font-semibold">Awards</h2>
+        </div>
+        <p class="text-sm text-muted-text dark:text-gray-400 max-w-xl">Academic, research, graduation, and creative distinctions arranged as a chronological timeline.</p>
+      </div>
+      <div class="timeline grid md:grid-cols-2 gap-5 text-sm">
+        <div class="timeline-item card card-hover rounded-2xl p-5" data-year="2026">
+          <div class="font-semibold text-lg">Winner of 2nd Place for Best Research Idea</div>
+          <p class="text-muted-text dark:text-gray-400 mt-1">Science at the Core of Innovation, Cairo, Egypt</p>
+        </div>
+        <div class="timeline-item card card-hover rounded-2xl p-5" data-year="2025">
           <div class="font-semibold text-lg">Cairo University International Publication Award</div>
           <p class="text-muted-text dark:text-gray-400 mt-1">Cairo University · 2023, 2024, 2025</p>
         </div>
-        <div class="card card-hover rounded-2xl p-5">
-          <div class="font-semibold text-lg">Winner of 2nd Place for Best Research Idea</div>
-          <p class="text-muted-text dark:text-gray-400 mt-1">Science at the Core of Innovation · 2026</p>
-        </div>
-        <div class="card card-hover rounded-2xl p-5">
-          <div class="font-semibold text-lg">Appreciation Award in the Faculty of Science Street Photography Competition</div>
-          <p class="text-muted-text dark:text-gray-400 mt-1">Faculty of Science · 2018</p>
-        </div>
-        <div class="card card-hover rounded-2xl p-5">
+        <div class="timeline-item card card-hover rounded-2xl p-5" data-year="2018">
           <div class="font-semibold text-lg">Faculty of Science Award for Top Graduating Students</div>
-          <p class="text-muted-text dark:text-gray-400 mt-1">Cairo University · 2018</p>
+          <p class="text-muted-text dark:text-gray-400 mt-1">Cairo University</p>
         </div>
-        <div class="card card-hover rounded-2xl p-5">
+        <div class="timeline-item card card-hover rounded-2xl p-5" data-year="2018">
           <div class="font-semibold text-lg">Department of Zoology Award for the Top-Ranked Student, 1st Place</div>
-          <p class="text-muted-text dark:text-gray-400 mt-1">Cairo University · 2018</p>
+          <p class="text-muted-text dark:text-gray-400 mt-1">Cairo University</p>
         </div>
-        <div class="card card-hover rounded-2xl p-5">
+        <div class="timeline-item card card-hover rounded-2xl p-5" data-year="2018">
           <div class="font-semibold text-lg">Dr. Zain Al-Abidin Award for First and Second-Ranked Students</div>
-          <p class="text-muted-text dark:text-gray-400 mt-1">Faculty of Science Graduating Class · 2018</p>
+          <p class="text-muted-text dark:text-gray-400 mt-1">Faculty of Science Graduating Class</p>
         </div>
-        <div class="card card-hover rounded-2xl p-5 md:col-span-2">
+        <div class="timeline-item card card-hover rounded-2xl p-5" data-year="2018">
+          <div class="font-semibold text-lg">Appreciation Award in Street Photography Competition</div>
+          <p class="text-muted-text dark:text-gray-400 mt-1">Faculty of Science</p>
+        </div>
+        <div class="timeline-item card card-hover rounded-2xl p-5 md:col-span-2" data-year="2017">
           <div class="font-semibold text-lg">Syndicate of Scientific Professions Award for Top Graduates of the Faculty of Science</div>
-          <p class="text-muted-text dark:text-gray-400 mt-1">Syndicate of Scientific Professions · 2017</p>
+          <p class="text-muted-text dark:text-gray-400 mt-1">Syndicate of Scientific Professions</p>
         </div>
       </div>
     </section>
@@ -1130,6 +1523,22 @@
             <option value="asc">Year (Oldest first)</option>
           </select>
         </div>
+      </div>
+
+      <div class="pub-tools grid md:grid-cols-[1.6fr_0.8fr_0.8fr_auto] gap-3 items-center mb-5 text-sm">
+        <label class="sr-only" for="pub-search">Search publications</label>
+        <input id="pub-search" class="pub-input" type="search" placeholder="Search publications by title, journal, author, topic, or DOI..." />
+        <label class="sr-only" for="pub-year-filter">Filter publications by year</label>
+        <select id="pub-year-filter" class="pub-select">
+          <option value="all">All years</option>
+          <option value="2026">2026</option>
+          <option value="2025">2025</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+        </select>
+        <button id="pub-clear" type="button" class="btn-premium btn-outline-premium px-4 py-2 rounded-full text-sm font-semibold">Clear</button>
+        <div id="pub-count" class="text-xs font-semibold text-muted-text dark:text-gray-400 md:text-right">15 publications shown</div>
       </div>
 
       <div id="pub-years-container" class="space-y-3 text-sm">
@@ -1346,26 +1755,31 @@
     <section id="conferences" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
       <h2 class="section-title text-3xl font-semibold mb-6">Conference Participation</h2>
       <div class="space-y-4 text-sm">
-        <div class="card card-hover rounded-2xl p-5">
+        <div class="conference-card card card-hover rounded-2xl p-5">
+          <span class="status-badge gold">Poster + Award</span>
           <h3 class="text-lg font-semibold">Science at the Core of Innovation</h3>
           <p class="text-muted-text dark:text-gray-400">Cairo, Egypt · 7–8 April 2026</p>
           <p class="mt-2"><strong>Poster:</strong> Plasma Small-Extracellular Vesicle Proteomic Signature in Neoadjuvant Chemotherapy-Naïve Obese Breast Cancer Patients.</p>
           <p><strong>Award:</strong> Winner of 2nd Place for Best Research Idea.</p>
         </div>
-        <div class="card card-hover rounded-2xl p-5">
+        <div class="conference-card card card-hover rounded-2xl p-5">
+          <span class="status-badge">Abstract</span>
           <h3 class="text-lg font-semibold">ASTRO 2025: 67th Annual Meeting</h3>
           <p class="text-muted-text dark:text-gray-400">2025</p>
           <p class="mt-2"><strong>Abstract:</strong> Knockdown and Inhibition of RNA-Binding Proteins Musashi-1 and Musashi-2 Modulate DNA Repair and Radiosensitize Triple-Negative Breast Cancer.</p>
         </div>
-        <div class="card card-hover rounded-2xl p-5">
+        <div class="conference-card card card-hover rounded-2xl p-5">
+          <span class="status-badge">Attendee</span>
           <h3 class="text-lg font-semibold">Pathology Insights Conference</h3>
           <p class="text-muted-text dark:text-gray-400">Cairo, Egypt · 9 July 2025 · Attendee</p>
         </div>
-        <div class="card card-hover rounded-2xl p-5">
+        <div class="conference-card card card-hover rounded-2xl p-5">
+          <span class="status-badge">Attendee</span>
           <h3 class="text-lg font-semibold">International Conference of the Society of Endometriosis in Egypt — Endo Egypt</h3>
           <p class="text-muted-text dark:text-gray-400">Cairo, Egypt · 22 February 2025 · Attendee</p>
         </div>
-        <div class="card card-hover rounded-2xl p-5">
+        <div class="conference-card card card-hover rounded-2xl p-5">
+          <span class="status-badge">Attendee</span>
           <h3 class="text-lg font-semibold">First Annual “Next Generation Cancer Research and Diagnosis” Conference</h3>
           <p class="text-muted-text dark:text-gray-400">Cairo, Egypt · 2014 · Attendee</p>
         </div>
@@ -1373,7 +1787,7 @@
     </section>
 
     <!-- ORGANIZATION EXPERIENCE -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
+    <section id="organization" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
       <h2 class="section-title text-3xl font-semibold mb-6">Organization &amp; Outreach Experience</h2>
       <ul class="space-y-3 text-sm">
         <li class="card card-hover rounded-2xl p-4">
@@ -1395,7 +1809,7 @@
     </section>
 
     <!-- MEMBERSHIPS & SERVICE -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
+    <section id="service" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
       <h2 class="section-title text-3xl font-semibold mb-6">Memberships &amp; Academic Service</h2>
       <div class="grid md:grid-cols-2 gap-6 text-sm">
         <div class="card card-hover rounded-2xl p-5">
@@ -1487,6 +1901,15 @@
           <h3 class="text-lg font-semibold mb-2">Ph.D. Thesis</h3>
           <p class="font-medium">Proteomic Profiling of Circulating Exosomes in Breast Cancer Patients.</p>
           <p class="text-muted-text dark:text-gray-400 mt-2">
+            <strong>Core aim:</strong> Proteomic profiling of circulating exosomes from breast cancer patients to identify exosomal proteome signatures for non-invasive liquid biopsy applications.
+          </p>
+          <div class="research-pills mt-3 flex flex-wrap gap-2">
+            <span>Exosome isolation</span>
+            <span>Proteomic profiling</span>
+            <span>Biomarker discovery</span>
+            <span>Breast cancer monitoring</span>
+          </div>
+          <p class="text-muted-text dark:text-gray-400 mt-3">
             <strong>Supervisors:</strong> Prof. Dr. Sherif Abdelaziz Ibrahim, Professor of Cancer Cell Biology, Zoology Department, Faculty of Science, Cairo University; Dr. Ghada Mohamed Abdel-Salam, Associate Professor of Pathology, National Cancer Institute, Cairo University; Dr. Sherif Nasser Mohamed Taha, Lecturer of Surgical Oncology, National Cancer Institute, Cairo University.
           </p>
         </div>
@@ -1567,6 +1990,7 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 text-xs text-muted-text dark:text-gray-400 flex flex-wrap justify-between gap-2">
       <span>© <span id="year"></span> Amr Ahmed WalyEldeen.</span>
       <span>Faculty of Science, Cairo University.</span>
+      <span>Last updated: May 2026.</span>
     </div>
   </footer>
 
@@ -1735,6 +2159,92 @@
     }, { rootMargin: '-35% 0px -55% 0px', threshold: 0.01 });
 
     observedSections.forEach(section => activeNavObserver.observe(section));
+
+    // Print / save as PDF
+    const printCvBtn = document.getElementById('print-cv');
+    if (printCvBtn) {
+      printCvBtn.addEventListener('click', () => window.print());
+    }
+
+    // Animated counters
+    const countEls = document.querySelectorAll('.count-up');
+    const countObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.target || '0', 10);
+        const duration = 900;
+        const startTime = performance.now();
+
+        function tick(now) {
+          const progress = Math.min((now - startTime) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(target * eased).toString();
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    countEls.forEach(el => countObserver.observe(el));
+
+    // Publications search and year filtering
+    const pubSearch = document.getElementById('pub-search');
+    const pubYearFilter = document.getElementById('pub-year-filter');
+    const pubClear = document.getElementById('pub-clear');
+    const pubCount = document.getElementById('pub-count');
+
+    function updatePublicationFilters() {
+      if (!yearsContainer) return;
+      const query = (pubSearch?.value || '').trim().toLowerCase();
+      const selectedYear = pubYearFilter?.value || 'all';
+      let visibleCount = 0;
+      let totalCount = 0;
+
+      document.querySelectorAll('.year-block').forEach(block => {
+        const year = block.dataset.year;
+        let blockHasVisible = false;
+        const items = block.querySelectorAll('.year-body li');
+
+        items.forEach(item => {
+          totalCount += 1;
+          const text = item.textContent.toLowerCase();
+          const matchesQuery = !query || text.includes(query);
+          const matchesYear = selectedYear === 'all' || selectedYear === year;
+          const visible = matchesQuery && matchesYear;
+          item.style.display = visible ? '' : 'none';
+          if (visible) {
+            blockHasVisible = true;
+            visibleCount += 1;
+          }
+        });
+
+        block.style.display = blockHasVisible ? '' : 'none';
+        if ((query || selectedYear !== 'all') && blockHasVisible) {
+          block.classList.add('open');
+          const btn = block.querySelector('button');
+          if (btn) btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+
+      if (pubCount) {
+        pubCount.textContent = `${visibleCount} of ${totalCount} publications shown`;
+      }
+    }
+
+    if (pubSearch) pubSearch.addEventListener('input', updatePublicationFilters);
+    if (pubYearFilter) pubYearFilter.addEventListener('change', updatePublicationFilters);
+    if (pubClear) {
+      pubClear.addEventListener('click', () => {
+        if (pubSearch) pubSearch.value = '';
+        if (pubYearFilter) pubYearFilter.value = 'all';
+        updatePublicationFilters();
+        sortYearBlocks(pubSortSelect?.value || 'desc');
+      });
+    }
+    updatePublicationFilters();
+
 
     // =========================
     //    QUOTE ROTATOR (NEW)
