@@ -917,7 +917,7 @@
 
     @media (min-width: 768px) {
       .academic-metrics-grid {
-        grid-template-columns: 1.15fr 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -1109,6 +1109,7 @@
         <nav class="hidden lg:flex flex-wrap justify-end gap-1.5 text-[0.72rem] xl:text-sm font-medium text-muted-text dark:text-gray-300">
           <a href="#highlights" class="hover:text-brand-primary dark:hover:text-sky-300">Highlights</a>
           <a href="#academic-metrics" class="hover:text-brand-primary dark:hover:text-sky-300">Metrics</a>
+          <a href="#biology-tools" class="hover:text-brand-primary dark:hover:text-sky-300">Tools</a>
           <a href="#research-focus" class="hover:text-brand-primary dark:hover:text-sky-300">Research</a>
           <a href="#about" class="hover:text-brand-primary dark:hover:text-sky-300">About</a>
           <a href="#education" class="hover:text-brand-primary dark:hover:text-sky-300">Education</a>
@@ -1183,6 +1184,7 @@
         <li><a href="#home" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Home</a></li>
         <li><a href="#highlights" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Recent Highlights</a></li>
         <li><a href="#academic-metrics" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Academic Metrics</a></li>
+        <li><a href="#biology-tools" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Biology Tools</a></li>
         <li><a href="#research-focus" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Research Focus</a></li>
         <li><a href="#about" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">About</a></li>
         <li><a href="#education" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Education</a></li>
@@ -1328,25 +1330,42 @@
           </div>
         </article>
 
-        <article class="academic-metric-card card card-hover rounded-2xl p-5">
-          <p class="academic-metric-label mb-3">Profile Snapshot</p>
-          <div class="space-y-3">
-            <div class="flex items-center justify-between gap-3">
-              <span class="academic-metric-sub">Scopus documents</span>
-              <strong class="text-lg text-brand-primary dark:text-sky-300"><span class="count-up" data-target="13">0</span></strong>
-            </div>
-            <div class="flex items-center justify-between gap-3">
-              <span class="academic-metric-sub">Google Scholar citations since 2021</span>
-              <strong class="text-lg text-brand-primary dark:text-sky-300"><span class="count-up" data-target="206">0</span></strong>
-            </div>
-            <div class="flex items-center justify-between gap-3">
-              <span class="academic-metric-sub">Google Scholar i10-index</span>
-              <strong class="text-lg text-brand-primary dark:text-sky-300"><span class="count-up" data-target="4">0</span></strong>
-            </div>
-          </div>
-        </article>
       </div>
     </section>
+
+    <!-- BIOLOGY WORKFLOW TOOLS -->
+    <section id="biology-tools" class="max-w-6xl mx-auto px-4 sm:px-6 pb-10 fade-in">
+      <div class="card card-hover rounded-2xl p-6 md:p-8 overflow-hidden">
+        <div class="grid md:grid-cols-[1.4fr_0.8fr] gap-6 items-center">
+          <div>
+            <p class="text-xs uppercase tracking-[0.25em] text-brand-primary dark:text-sky-300 mb-2">
+              Developed Tools
+            </p>
+
+            <h2 class="section-title text-3xl font-semibold">
+              Biology Workflow Tools
+            </h2>
+
+            <p class="mt-5 text-base leading-relaxed text-muted-text dark:text-gray-300">
+              I developed a set of web-based calculation tools to support biologists in routine laboratory work.
+              These tools help streamline common molecular biology and cell biology calculations, reduce manual errors,
+              and provide quick access to practical formulas used in daily research workflows.
+            </p>
+          </div>
+
+          <div class="flex md:justify-end">
+            <a href="https://amrwalyeldeen.github.io/CMBRLTOOLS/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn-premium btn-primary-premium inline-flex items-center justify-center px-6 py-3 rounded-full bg-brand-primary text-white text-sm font-semibold shadow-soft hover:bg-[#0d9488] w-full sm:w-auto"
+               aria-label="Open Biology Workflow Tools">
+              Open Biology Tools
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- RECENT HIGHLIGHTS -->
     <section id="highlights" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 fade-in">
