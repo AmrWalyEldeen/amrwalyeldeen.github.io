@@ -28,3 +28,5 @@ Upload the contents of this folder to the repository root, replacing the current
 - Further optimized the gallery and profile images for web delivery while preserving the original aspect ratios.
 - Kept the on-page display constrained so images do not appear at their original full size on the page.
 - Updated the Arabic display name to **عمرو ولي الدين**.
+
+- Renamed the profile image file to `profile-amr-2026.jpg` to force GitHub Pages and browsers to load the new profile photo instead of a cached one.
