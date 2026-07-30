@@ -1733,7 +1733,7 @@
       <div class="mb-6 text-center">
         <p class="text-xs uppercase tracking-[0.25em] text-brand-primary dark:text-sky-300 mb-2">Academic Journey</p>
         <h2 class="section-title text-3xl font-semibold">Memories and Unforgettable Moments</h2>
-        <p class="mt-4 text-sm text-muted-text dark:text-gray-400">Four optimized photographs are refreshed automatically every 10 seconds.</p>
+        <p class="mt-4 text-sm text-muted-text dark:text-gray-400">Four photographs refresh every 10 seconds, and every image is shown before the sequence reshuffles.</p>
       </div>
       <div class="memories-shell">
         <div id="memories-grid" class="memories-grid" aria-live="polite" aria-label="Rotating academic memories gallery"></div>
@@ -2534,7 +2534,8 @@
 
 
 
-    // Memories collage: four new non-clickable images every 10 seconds.
+    // Memories collage: four non-clickable images every 10 seconds.
+    // A shuffled deck is fully consumed before any image is repeated.
     const memoryImages = [
       "assets/gallery/memory-01.webp",
       "assets/gallery/memory-02.webp",
@@ -2553,27 +2554,64 @@
       "assets/gallery/memory-15.webp",
       "assets/gallery/memory-16.webp",
       "assets/gallery/memory-17.webp",
-      "assets/gallery/memory-18.webp"
+      "assets/gallery/memory-18.webp",
+      "assets/gallery/memory-19.webp",
+      "assets/gallery/memory-20.webp",
+      "assets/gallery/memory-21.webp",
+      "assets/gallery/memory-22.webp",
+      "assets/gallery/memory-23.webp",
+      "assets/gallery/memory-24.webp",
+      "assets/gallery/memory-25.webp",
+      "assets/gallery/memory-26.webp",
+      "assets/gallery/memory-27.webp",
+      "assets/gallery/memory-28.webp",
+      "assets/gallery/memory-29.webp",
+      "assets/gallery/memory-30.webp",
+      "assets/gallery/memory-31.webp",
+      "assets/gallery/memory-32.webp",
+      "assets/gallery/memory-33.webp"
     ];
     const memoriesGrid = document.getElementById('memories-grid');
+    let memoryDeck = [];
     let previousMemoryBatch = [];
 
-    function shuffledMemoryBatch() {
-      const pool = memoryImages.filter(src => !previousMemoryBatch.includes(src));
-      const source = pool.length >= 4 ? pool : memoryImages.slice();
-      for (let i = source.length - 1; i > 0; i -= 1) {
+    function shuffleImages(images) {
+      const shuffled = images.slice();
+      for (let i = shuffled.length - 1; i > 0; i -= 1) {
         const j = Math.floor(Math.random() * (i + 1));
-        [source[i], source[j]] = [source[j], source[i]];
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
       }
-      return source.slice(0, 4);
+      return shuffled;
+    }
+
+    function refillMemoryDeck(exclusions = []) {
+      const excluded = new Set(exclusions);
+      const shuffled = shuffleImages(memoryImages);
+      const preferred = shuffled.filter(src => !excluded.has(src));
+      const delayed = shuffled.filter(src => excluded.has(src));
+      memoryDeck = preferred.concat(delayed);
+    }
+
+    function nextMemoryBatch() {
+      const batch = [];
+      while (batch.length < 4) {
+        if (memoryDeck.length === 0) {
+          refillMemoryDeck(previousMemoryBatch.concat(batch));
+        }
+        const candidate = memoryDeck.shift();
+        if (!batch.includes(candidate)) {
+          batch.push(candidate);
+        }
+      }
+      previousMemoryBatch = batch.slice();
+      return batch;
     }
 
     function renderMemories() {
       if (!memoriesGrid) return;
       memoriesGrid.classList.add('is-changing');
       window.setTimeout(() => {
-        const batch = shuffledMemoryBatch();
-        previousMemoryBatch = batch;
+        const batch = nextMemoryBatch();
         memoriesGrid.replaceChildren(...batch.map((src, index) => {
           const frame = document.createElement('figure');
           frame.className = 'memory-frame';
@@ -2582,8 +2620,6 @@
           img.alt = `Academic memory ${index + 1}`;
           img.loading = 'lazy';
           img.decoding = 'async';
-          img.width = 1200;
-          img.height = 900;
           img.draggable = false;
           frame.appendChild(img);
           return frame;
@@ -2592,6 +2628,7 @@
       }, 420);
     }
 
+    refillMemoryDeck();
     renderMemories();
     window.setInterval(renderMemories, 10000);
 

@@ -38,3 +38,9 @@ Upload the contents of this folder to the repository root, replacing the current
 - Reduced the displayed gallery width by about 30%.
 - Gallery images now use their original aspect ratios without cropping or stretching.
 - Removed the obsolete cached profile file `amr.jpg.jpg`; the active profile image is `profile-amr-2026.jpg`.
+
+## Gallery rotation update
+
+- Added 15 newly supplied photographs, bringing the gallery to 33 images.
+- The gallery now uses a shuffled-deck rotation: every photograph is displayed before the sequence starts repeating.
+- Images remain optimized for web delivery and preserve their original aspect ratios.
