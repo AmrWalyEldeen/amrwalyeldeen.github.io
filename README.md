@@ -21,3 +21,10 @@ Upload the contents of this folder to the repository root, replacing the current
 - Added the Cellular and Molecular Biosciences Research Laboratory affiliation beside the Department of Zoology
 - Applied an elegant navy, burgundy, ivory, and gold visual palette
 - Removed the redundant Recent Highlights section
+
+## Latest refinement
+
+- Replaced the profile image with the newly supplied photo.
+- Further optimized the gallery and profile images for web delivery while preserving the original aspect ratios.
+- Kept the on-page display constrained so images do not appear at their original full size on the page.
+- Updated the Arabic display name to **عمرو ولي الدين**.

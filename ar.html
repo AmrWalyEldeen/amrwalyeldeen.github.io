@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>عمرو أحمد ولي الدين | الملف الأكاديمي</title>
+  <title>عمرو ولي الدين | الملف الأكاديمي</title>
 
-  <meta name="description" content="الملف الأكاديمي لعمرو أحمد ولي الدين، مدرس مساعد وباحث في بيولوجيا الخلية السرطانية والأورام الجزيئية والحويصلات خارج الخلية والخزعة السائلة والبروتيوميات والمعلوماتية الحيوية بجامعة القاهرة." />
+  <meta name="description" content="الملف الأكاديمي لعمرو ولي الدين، مدرس مساعد وباحث في بيولوجيا الخلية السرطانية والأورام الجزيئية والحويصلات خارج الخلية والخزعة السائلة والبروتيوميات والمعلوماتية الحيوية بجامعة القاهرة." />
   <meta name="author" content="Amr Ahmed WalyEldeen" />
   <meta name="keywords" content="Amr Ahmed WalyEldeen, Cairo University, cancer biology, extracellular vesicles, exosomes, breast cancer, liquid biopsy, proteomics, molecular oncology, bioinformatics, histology, genetics" />
   <meta name="theme-color" content="#173B57" />
@@ -103,6 +103,11 @@
 
     h1, h2, h3, h4 {
       font-family: 'Playfair Display', serif;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
     }
 
     /* Soft dotted texture */
@@ -488,8 +493,8 @@
     }
 
     .profile-photo {
-      width: 17rem !important;
-      height: 17rem !important;
+      width: clamp(13.5rem, 28vw, 17rem) !important;
+      height: clamp(13.5rem, 28vw, 17rem) !important;
       border-radius: 1.7rem !important;
       border: 3px solid rgba(255,255,255,0.78) !important;
       box-shadow: inset 0 0 0 1px rgba(255,255,255,0.45), 0 18px 45px rgba(15, 23, 42, 0.20);
@@ -740,8 +745,8 @@
       }
 
       .profile-photo {
-        width: 14.5rem !important;
-        height: 14.5rem !important;
+        width: min(14.5rem, 78vw) !important;
+        height: min(14.5rem, 78vw) !important;
       }
 
       #awards .card {
@@ -1256,7 +1261,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
       <!-- Brand -->
       <a href="#home" class="font-serif text-xl md:text-2xl font-semibold text-brand-primary dark:text-sky-300">
-        Amr Ahmed WalyEldeen
+        عمرو ولي الدين
       </a>
 
       <div class="flex items-center gap-3">
@@ -1368,7 +1373,7 @@
       <div>
         <p class="text-xs uppercase tracking-[0.25em] text-brand-primary dark:text-sky-300 mb-3">الملف الأكاديمي</p>
         <h1 class="text-4xl md:text-5xl font-semibold leading-tight">
-          Amr Ahmed<br class="hidden sm:block" /> WalyEldeen
+          عمرو<br class="hidden sm:block" /> ولي الدين
         </h1>
 
         <!-- Signature under name -->
@@ -1376,7 +1381,7 @@
           <div class="signature-wrapper">
             <div class="signature-text signature-floating">
               <span class="signature-dot"></span>
-              <span>Amr A. WalyEldeen</span>
+              <span>عمرو ولي الدين</span>
             </div>
           </div>
         </div>
@@ -1415,7 +1420,10 @@
           <div class="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-tr from-brand-accent/50 to-sky-200 blur-2xl opacity-60"></div>
           <img
             src="amr.jpg.jpg"
-            alt="Photo of Amr Ahmed WalyEldeen"
+            alt="الصورة الشخصية لعمرو ولي الدين"
+            width="900"
+            height="900"
+            fetchpriority="high"
             decoding="async"
             class="profile-photo relative w-56 h-56 md:w-64 md:h-64 rounded-3xl object-cover shadow-soft border border-white/80 bg-white"
           />
@@ -1600,7 +1608,7 @@
         <div class="card card-hover rounded-2xl p-5">
           <h3 class="text-xl font-semibold mb-3">المعلومات الشخصية</h3>
           <ul class="space-y-2 text-sm">
-            <li><strong>الاسم الكامل:</strong> Amr Ahmed Abdelfattah Ahmed WalyEldeen</li>
+            <li><strong>الاسم:</strong> عمرو ولي الدين</li>
             <li><strong>تاريخ الميلاد:</strong> 10 July 1995</li>
             <li><strong>الجنسية:</strong> مصري</li>
             <li><strong>الحالة الاجتماعية:</strong> متزوج</li>
@@ -1723,7 +1731,7 @@
       </div>
       <div class="memories-shell">
         <div id="memories-grid" class="memories-grid" aria-live="polite" aria-label="Rotating academic memories gallery"></div>
-        <p class="gallery-note">تُعرض الصور في كولاج ثابت دون خيار فتحها بحجم كبير.</p>
+        <p class="gallery-note">تُعرض الصور بنسخة مخصصة للويب داخل كولاج ثابت دون خيار فتحها بحجم كبير.</p>
       </div>
     </section>
 
@@ -2263,7 +2271,7 @@
   <!-- FOOTER -->
   <footer class="border-t border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900 mt-4">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 text-xs text-muted-text dark:text-gray-400 flex flex-wrap justify-between gap-2">
-      <span>© <span id="year"></span> Amr Ahmed WalyEldeen.</span>
+      <span>© <span id="year"></span> عمرو ولي الدين.</span>
       <span>كلية العلوم، جامعة القاهرة.</span>
       <span>آخر تحديث: يوليو 2026.</span>
     </div>
@@ -2568,8 +2576,10 @@
           const img = document.createElement('img');
           img.src = src;
           img.alt = `ذكرى أكاديمية ${index + 1}`;
-          img.loading = index < 4 ? 'eager' : 'lazy';
+          img.loading = 'lazy';
           img.decoding = 'async';
+          img.width = 1200;
+          img.height = 900;
           img.draggable = false;
           frame.appendChild(img);
           return frame;
