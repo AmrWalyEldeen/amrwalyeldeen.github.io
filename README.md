@@ -50,3 +50,5 @@ Upload the contents of this folder to the repository root, replacing the current
 - Academic references were reduced to a single reference: Prof. Dr. Sherif Ibrahim.
 - Added the Third Cairo University Forum for Innovation to conference participation, including venue, date, poster participation, and second-place award.
 - Reordered the awards section with the innovation forum award first, followed by the Cairo University Young Researcher Award and the SCI 2026 Best Research Idea award.
+
+- Removed `memory-31.webp` from the rotating gallery.
