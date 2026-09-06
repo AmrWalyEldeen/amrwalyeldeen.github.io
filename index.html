@@ -1273,6 +1273,7 @@
         <nav class="hidden lg:flex flex-wrap justify-end gap-1.5 text-[0.72rem] xl:text-sm font-medium text-muted-text dark:text-gray-300">
           <a href="#academic-metrics" class="hover:text-brand-primary dark:hover:text-sky-300">Metrics</a>
           <a href="#biology-tools" class="hover:text-brand-primary dark:hover:text-sky-300">Tools</a>
+          <a href="#computational-biophysics-tools" class="hover:text-brand-primary dark:hover:text-sky-300">Comp. Biophysics</a>
           <a href="#research-focus" class="hover:text-brand-primary dark:hover:text-sky-300">Research</a>
           <a href="#about" class="hover:text-brand-primary dark:hover:text-sky-300">About</a>
           <a href="#education" class="hover:text-brand-primary dark:hover:text-sky-300">Education</a>
@@ -1351,6 +1352,7 @@
         <li><a href="#home" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Home</a></li>
         <li><a href="#academic-metrics" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Academic Metrics</a></li>
         <li><a href="#biology-tools" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Biology Tools</a></li>
+        <li><a href="#computational-biophysics-tools" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Computational Biophysics Tools</a></li>
         <li><a href="#research-focus" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Research Focus</a></li>
         <li><a href="#about" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">About</a></li>
         <li><a href="#education" class="block py-2 border-b border-slate-100 dark:border-slate-800 mobile-link">Education</a></li>
@@ -1530,6 +1532,75 @@
             </a>
           </div>
         </div>
+      </div>
+    </section>
+
+
+    <!-- COMPUTATIONAL BIOPHYSICS TOOLS -->
+    <section id="computational-biophysics-tools" class="max-w-6xl mx-auto px-4 sm:px-6 pb-10 fade-in">
+      <div class="mb-6">
+        <p class="text-xs uppercase tracking-[0.25em] text-brand-primary dark:text-sky-300 mb-2">Computational Research Tools</p>
+        <div class="flex flex-wrap items-end justify-between gap-3">
+          <h2 class="section-title text-3xl font-semibold">Computational Biophysics Tools</h2>
+          <span class="inline-flex items-center rounded-full border border-brand-accent/30 bg-brand-soft/70 dark:bg-slate-800 px-3 py-1.5 text-xs font-bold text-brand-accent dark:text-amber-300">
+            Version of Record · September 2026
+          </span>
+        </div>
+        <p class="mt-4 max-w-4xl text-sm leading-relaxed text-muted-text dark:text-gray-300">
+          Google Colab-based computational tools for molecular modeling workflows, organized into small-molecule geometry optimization/modeling and molecular docking.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-6">
+        <article class="card card-hover rounded-2xl p-6 md:p-7">
+          <div class="flex items-start gap-4">
+            <div class="shrink-0 w-12 h-12 rounded-2xl bg-brand-soft dark:bg-slate-800 flex items-center justify-center text-2xl" aria-hidden="true">⚛️</div>
+            <div class="min-w-0">
+              <p class="text-xs uppercase tracking-[0.18em] text-brand-accent dark:text-amber-300 font-bold mb-2">Geometry Optimization &amp; Modeling</p>
+              <h3 class="text-xl font-semibold leading-snug">Molecular Optimizer for Small-Molecule Geometry Optimization and Modeling</h3>
+              <p class="mt-3 text-sm leading-relaxed text-muted-text dark:text-gray-300">
+                Two Google Colab implementations for small-molecule geometry optimization and molecular modeling workflows.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6 grid sm:grid-cols-2 gap-3">
+            <a href="https://colab.research.google.com/drive/1GLP0AwrM9uVy_Ya6blJBJggGgRJocyJi?usp=sharing"
+               target="_blank" rel="noopener noreferrer"
+               class="btn-premium btn-primary-premium inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-brand-primary text-white text-sm font-semibold shadow-soft hover:bg-[#244F6B]"
+               aria-label="Open Molecular Optimizer code 1 in Google Colab">
+              <span>Open Colab Code 1</span><span aria-hidden="true">↗</span>
+            </a>
+            <a href="https://colab.research.google.com/drive/1kk_0QSs_LLqUCjcDrRH1Cc23_9L5BKWU?usp=sharing"
+               target="_blank" rel="noopener noreferrer"
+               class="btn-premium btn-outline-premium inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border border-brand-primary text-brand-primary dark:text-sky-300 bg-white/70 dark:bg-slate-900/55 text-sm font-semibold hover:bg-brand-soft/70 dark:hover:bg-slate-800"
+               aria-label="Open Molecular Optimizer code 2 in Google Colab">
+              <span>Open Colab Code 2</span><span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="card card-hover rounded-2xl p-6 md:p-7">
+          <div class="flex items-start gap-4">
+            <div class="shrink-0 w-12 h-12 rounded-2xl bg-brand-soft dark:bg-slate-800 flex items-center justify-center text-2xl" aria-hidden="true">🧩</div>
+            <div class="min-w-0">
+              <p class="text-xs uppercase tracking-[0.18em] text-brand-accent dark:text-amber-300 font-bold mb-2">Protein–Ligand Modeling</p>
+              <h3 class="text-xl font-semibold leading-snug">Molecular Docking</h3>
+              <p class="mt-3 text-sm leading-relaxed text-muted-text dark:text-gray-300">
+                A Google Colab workflow for molecular docking calculations and computational modeling.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <a href="https://colab.research.google.com/drive/1BN6TgtrNRKBK2q8hMsm6mLsc02Hc0P0w?usp=sharing"
+               target="_blank" rel="noopener noreferrer"
+               class="btn-premium btn-primary-premium inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-brand-primary text-white text-sm font-semibold shadow-soft hover:bg-[#244F6B] w-full sm:w-auto"
+               aria-label="Open Molecular Docking workflow in Google Colab">
+              <span>Open Molecular Docking Colab</span><span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -2276,7 +2347,7 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 text-xs text-muted-text dark:text-gray-400 flex flex-wrap justify-between gap-2">
       <span>© <span id="year"></span> Amr Ahmed WalyEldeen.</span>
       <span>Faculty of Science, Cairo University.</span>
-      <span>Last updated: July 2026.</span>
+      <span>Version of Record: September 2026.</span>
     </div>
   </footer>
 

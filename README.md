@@ -52,3 +52,10 @@ Upload the contents of this folder to the repository root, replacing the current
 - Reordered the awards section with the innovation forum award first, followed by the Cairo University Young Researcher Award and the SCI 2026 Best Research Idea award.
 
 - Removed `memory-31.webp` from the rotating gallery.
+
+## September 2026 update
+
+- Added a new **Computational Biophysics Tools** section in English and Arabic.
+- Added two Google Colab links under **Molecular Optimizer for Small-Molecule Geometry Optimization and Modeling**.
+- Added one Google Colab link under **Molecular Docking**.
+- Marked this release as **Version of Record: September 2026**.
